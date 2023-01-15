@@ -1,23 +1,28 @@
-.box {
+/*flexbox properties*/
+.container {
     display:flex;
-    align-items: center;
     justify-content: center;
     border: 1px solid transparent;
-    gap: 2px;
     margin: 300px;
     background-color: white;
-
+    border-radius: 25px;
+    height: 600px;
 }
 
+.item {
+    flex: 1;
+    /*flex-direction: column;*/
+}
+
+/*flex item properties*/
 .img {
     flex: auto;
+    object-fit: cover;
 }
 
 .large-text, .smaller-text, .newprice {
     /*font-size: 14px;*/
     font-weight: 700;
-    margin: 3px;
-    border: 1px solid white;
     text-align: center;
     
 
@@ -33,10 +38,6 @@
     font-family: 'Montserrat', serif;
 }
 
-.box div {
-    flex: 1;
-    flex-direction: column;
-}
 
 .oldprice {
     text-decoration: line-through;
@@ -45,7 +46,7 @@
 .newprice {
     color: hsl(158, 36%, 37%);
 }
-
+/*background for the area outside of the flexbox*/
 .background {
     width: 1440px;
     background-color: hsl(32, 37%, 92%);
@@ -54,4 +55,15 @@
 .contentbox {
     display: flex;
     flex-direction: column;
+}
+
+.backimg {
+    background-image: url(/images/image-product-desktop.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 25px 0px 0px 25px;
+}
+.align {
+    text-align: center;
+    justify-content: center;
 }
