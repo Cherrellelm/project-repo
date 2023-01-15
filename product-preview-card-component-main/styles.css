@@ -1,0 +1,57 @@
+.box {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    gap: 2px;
+    margin: 300px;
+    background-color: white;
+
+}
+
+.img {
+    flex: auto;
+}
+
+.large-text, .smaller-text, .newprice {
+    /*font-size: 14px;*/
+    font-weight: 700;
+    margin: 3px;
+    border: 1px solid white;
+    text-align: center;
+    
+
+}
+
+.large-text, .newprice {
+    font-family: 'fraunces', cursive;
+    font-size: 32px;
+
+}
+
+.smaller-text, .oldprice {
+    font-family: 'Montserrat', serif;
+}
+
+.box div {
+    flex: 1;
+    flex-direction: column;
+}
+
+.oldprice {
+    text-decoration: line-through;
+}
+
+.newprice {
+    color: hsl(158, 36%, 37%);
+}
+
+.background {
+    width: 1440px;
+    background-color: hsl(32, 37%, 92%);
+}
+
+.contentbox {
+    display: flex;
+    flex-direction: column;
+}
