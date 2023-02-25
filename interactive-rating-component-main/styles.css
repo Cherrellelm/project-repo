@@ -8,9 +8,24 @@
 
 .container{
  display: flex;
+ flex-direction: column;
+ text-align: left;
+ position: absolute;
+ width: 100%;
+ height: 100%;
  justify-content: center;
+ align-items: center;
+}
+
+.contStyle{
+  background-color: rgb(41, 38, 38);
+  background: linear-gradient(rgb(57, 63, 90), rgb(28, 35, 69));
+  color: white;
 }
 
 .item{
-    
+    flex: 1;
+}
+.star{
+  
 }
