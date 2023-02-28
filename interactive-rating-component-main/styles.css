@@ -19,11 +19,10 @@
 
 .contStyle{
   background-color: rgb(41, 38, 38);
-  background: linear-gradient(rgb(83, 90, 121), rgb(28, 35, 69));
+  background: linear-gradient(rgb(85, 89, 106), rgb(37, 43, 65));
   color: white;
   border-radius: 15px;
-  padding-top: 70px;
-  padding-bottom: 70px;
+  padding: 70px;
 }
 
 .item{
@@ -34,10 +33,30 @@
 }
 
 .button {
-  border-radius: 25px;
+  border-radius: 45%;
   padding: 10px;
   background-color: rgb(89, 86, 124);
   color: azure;
   padding: 12px;
-  
+  text-align: center;
+  margin: 7px;
+  font: 8px;
+  border: none;
+}
+
+.text {
+  padding: 8px;
+}
+
+.bodyBackground {
+  background-color: rgb(34, 34, 48);
+}
+
+.subButton {
+  border-radius: 16px;
+  background-color: hsl(28, 92%, 53%);
+  padding-left: 26px;
+  padding-right: 26px;
+  border: none;
+  color: hsl(0, 0%, 100%);
 }
