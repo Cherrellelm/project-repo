@@ -19,7 +19,7 @@
 
 .contStyle{
   background-color: rgb(41, 38, 38);
-  background: linear-gradient(rgb(57, 63, 90), rgb(28, 35, 69));
+  background: linear-gradient(rgb(83, 90, 121), rgb(28, 35, 69));
   color: white;
   border-radius: 15px;
   padding-top: 70px;
@@ -34,6 +34,10 @@
 }
 
 .button {
-  border-radius: 47px;
+  border-radius: 25px;
   padding: 10px;
+  background-color: rgb(89, 86, 124);
+  color: azure;
+  padding: 12px;
+  
 }
