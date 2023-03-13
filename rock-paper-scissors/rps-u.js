@@ -7,19 +7,16 @@ function getComputerChoice () {
     
 }
 
-let playerInput = prompt("Make your first move");
+let playerInput = prompt("Make your move!");
 let playerSelection = playerInput;
 let computerSelection = getComputerChoice();
 
 playerSelection = playerSelection.toLowerCase();
 
-console.log("Player Selection is " + playerSelection);
-console.log("Computer Selection is " + randomOption);
-
-
-
 
 function playRound(playerSelection, computerSelection) {
+    console.log("Player Selection is " + playerSelection);
+    console.log("Computer Selection is " + randomOption);
     if (playerSelection == "rock" && computerSelection == "rock") {
         console.log("It's a draw, everybody wins!");
     } else if (playerSelection == "rock" && computerSelection == "paper") {
@@ -48,10 +45,13 @@ function playRound(playerSelection, computerSelection) {
 
   function game (){
     for (let counter = 0; counter < 5; counter++) {
+
+        if (counter => 1) {
+        console.log("Round " + (counter +1))
+        }
         playRound(playerSelection, computerSelection);
-        console.log("Player Selection is " + playerSelection);
-        console.log("Computer Selection is " + randomOption);
      }
+     
   }
   
 game();
