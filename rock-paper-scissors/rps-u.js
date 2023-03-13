@@ -7,7 +7,8 @@ function getComputerChoice () {
     
 }
 
-let playerSelection = "PaPer";
+let playerInput = prompt("Make your first move");
+let playerSelection = playerInput;
 let computerSelection = getComputerChoice();
 
 playerSelection = playerSelection.toLowerCase();
@@ -48,6 +49,8 @@ function playRound(playerSelection, computerSelection) {
   function game (){
     for (let counter = 0; counter < 5; counter++) {
         playRound(playerSelection, computerSelection);
+        console.log("Player Selection is " + playerSelection);
+        console.log("Computer Selection is " + randomOption);
      }
   }
   
