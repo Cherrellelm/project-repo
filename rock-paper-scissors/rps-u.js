@@ -1,23 +1,18 @@
 //Let's play rock, paper, scissors - The Correct Code
 let playOptions = ["rock", "paper", "scissors"];
-let randomOption = playOptions[Math.floor(Math.random() * playOptions.length)];
-
-function getComputerChoice () {
-    return randomOption;
-}
 
 let playerInput = prompt("Make your move! Type Rock, Paper,or Scissors");
 let playerPoint = 0;
 let computerPoint = 0;
 let playerSelection = playerInput;
-let computerSelection = getComputerChoice();
+let computerSelection = playOptions[Math.floor(Math.random() * playOptions.length)];
 
 playerSelection = playerSelection.toLowerCase();
 
 
 function playRound(playerSelection, computerSelection) {
     console.log("Player Selection is " + playerSelection);
-    console.log("Computer Selection is " + randomOption);
+    console.log("Computer Selection is " + computerSelection);
 
     if (playerSelection == computerSelection) {
         console.log("It's a draw!");
@@ -55,7 +50,8 @@ function playRound(playerSelection, computerSelection) {
         console.log("Round " + (counter +1))
         }
 
-        playRound(playerSelection, randomOption);
+        playRound(playerSelection, computerSelection);
+        computerSelection = playOptions[Math.floor(Math.random() * playOptions.length)];
 
     }
   console.log(`Player score = ${playerPoint} | Computer score = ${computerPoint}`)
@@ -71,30 +67,3 @@ function playRound(playerSelection, computerSelection) {
 }
 
 game();
-
-//Need to figure out. howto generate random number each round
-//need to add total points each time a player wins around
-/*
-function game (){
-    for (let counter = 0; counter < 5; counter++) {
-
-        if (counter => 1) {
-        console.log("Round " + (counter +1))
-        }
-        let increase = 1;
-        playRound(playerSelection, randomOption);
-
-        for (let inCounter = 0; inCounter < playOptions[Math.floor(Math.random() * playOptions.length)]; inCounter++) {
-            computerSelection;
-            
-        }
-        increase++;
-
-     if (playerWins.includes("win")){
-        console.log("Player gets " + playerPoint + "point!" );
-    }
-    // else {
-        //console.log("Computer gets " + computerPoint + "point!")
-    //}
-  }
-}*/
