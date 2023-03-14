@@ -9,7 +9,6 @@ let computerSelection = playOptions[Math.floor(Math.random() * playOptions.lengt
 
 playerSelection = playerSelection.toLowerCase();
 
-
 function playRound(playerSelection, computerSelection) {
     console.log("Player Selection is " + playerSelection);
     console.log("Computer Selection is " + computerSelection);
@@ -27,7 +26,7 @@ function playRound(playerSelection, computerSelection) {
 
     if (playerSelection == "paper" && computerSelection == "rock") {
         console.log("You win, Paper covers Rock!");
-        playerPoint++
+        playerPoint++;
     } else if (playerSelection == "paper" && computerSelection == "scissors") {
         console.log("You lose, Scissors cuts Paper!");
         computerPoint++;
@@ -42,12 +41,11 @@ function playRound(playerSelection, computerSelection) {
     }
   }
   
-
   function game (){
     for (let counter = 0; counter < 5; counter++) {
 
         if (counter => 1) {
-        console.log("Round " + (counter +1))
+        console.log("Round " + (counter +1));
         }
 
         playRound(playerSelection, computerSelection);
@@ -56,14 +54,11 @@ function playRound(playerSelection, computerSelection) {
     }
   console.log(`Player score = ${playerPoint} | Computer score = ${computerPoint}`)
     if (playerPoint > computerPoint) {
-        console.log("You win the game!") 
+        console.log("You win the game!"); 
     } 
     if (playerPoint < computerPoint) {
-        console.log("Sorry you lose, try again!")
+        console.log("Sorry you lose, try again!");
     } 
-    if (playerPoint == computerPoint) {
-        console.log("It's a draw, try again!")
-    }
 }
 
 game();
