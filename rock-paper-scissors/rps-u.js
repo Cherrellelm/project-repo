@@ -7,7 +7,8 @@ function getComputerChoice () {
 }
 
 let playerInput = prompt("Make your move! Type Rock, Paper,or Scissors");
-let playerWins = "win";
+let playerPoint = 0;
+let computerPoint = 0;
 let playerSelection = playerInput;
 let computerSelection = getComputerChoice();
 
@@ -17,30 +18,35 @@ playerSelection = playerSelection.toLowerCase();
 function playRound(playerSelection, computerSelection) {
     console.log("Player Selection is " + playerSelection);
     console.log("Computer Selection is " + randomOption);
+
     if (playerSelection == computerSelection) {
         console.log("It's a draw!");
     }
     if (playerSelection == "rock" && computerSelection == "paper") {
         console.log("You lose, Paper covers Rock!");
+        computerPoint++;
     } else if (playerSelection == "rock" && computerSelection == "scissors") {
-        console.log(`You ${playerWins}, Rock beats Scissors!`);
+        console.log("You win, Rock beats Scissors!");
+        playerPoint++;
     }
 
     if (playerSelection == "paper" && computerSelection == "rock") {
-        console.log(`You ${playerWins}, Paper covers Rock!`);
+        console.log("You win, Paper covers Rock!");
+        playerPoint++
     } else if (playerSelection == "paper" && computerSelection == "scissors") {
         console.log("You lose, Scissors cuts Paper!");
+        computerPoint++;
     }
 
     if (playerSelection == "scissors" && computerSelection == "rock") {
         console.log("You lose, Rock beats Scissors!");
+        computerPoint++;
     } else if (playerSelection == "scissors" && computerSelection == "paper") {
-        console.log(`You ${playerWins}, Scissors cuts Paper!`);
+        console.log("You win, Scissors cuts Paper!");
+        playerPoint++;
     }
   }
   
- let playerPoint = 1;
- let computerPoint = 1;
 
   function game (){
     for (let counter = 0; counter < 5; counter++) {
@@ -52,12 +58,16 @@ function playRound(playerSelection, computerSelection) {
         playRound(playerSelection, randomOption);
 
     }
-     if (playerWins.includes("win")){
-        console.log("Player gets " + playerPoint + "point!" );
+  console.log(`Player score = ${playerPoint} | Computer score = ${computerPoint}`)
+    if (playerPoint > computerPoint) {
+        console.log("You win the game!") 
+    } 
+    if (playerPoint < computerPoint) {
+        console.log("Sorry you lose, try again!")
+    } 
+    if (playerPoint == computerPoint) {
+        console.log("It's a draw, try again!")
     }
-    // else {
-        //console.log("Computer gets " + computerPoint + "point!")
-    //}
 }
 
 game();
