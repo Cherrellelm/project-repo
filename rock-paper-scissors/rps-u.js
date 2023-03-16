@@ -50,14 +50,17 @@ function playRound(playerSelection, computerSelection) {
 
         playRound(playerSelection, computerSelection);
         computerSelection = playOptions[Math.floor(Math.random() * playOptions.length)];
-
     }
-  console.log(`Player score = ${playerPoint} | Computer score = ${computerPoint}`)
+
+    console.log(`Player score = ${playerPoint} | Computer score = ${computerPoint}`)
     if (playerPoint > computerPoint) {
         console.log("You win the game!"); 
     } 
     if (playerPoint < computerPoint) {
         console.log("Sorry you lose, try again!");
+    } 
+    if (playerPoint == computerPoint) {
+        console.log("It's a draw, play again!");
     } 
 }
 
