@@ -4,8 +4,10 @@ let playOptions = ["rock", "paper", "scissors"];
 let playerInput = prompt("Make your move! Type Rock, Paper,or Scissors");
 let playerPoint = 0;
 let computerPoint = 0;
-let playerSelection = playerInput;
+ let playerSelection = playerInput;
 let computerSelection = playOptions[Math.floor(Math.random() * playOptions.length)];
+
+let playBtn = document.querySelector("#playBtn");
 
 playerSelection = playerSelection.toLowerCase();
 
@@ -65,3 +67,12 @@ function playRound(playerSelection, computerSelection) {
 }
 
 game();
+
+
+playBtn.addEventListener ('click',() => startGame());
+
+let startGame = () => {
+    
+
+}
+
