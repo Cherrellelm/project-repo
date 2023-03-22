@@ -1,7 +1,7 @@
 //Let's play rock, paper, scissors - The Correct Code
 let playOptions = ["rock", "paper", "scissors"];
 
-let playerInput = prompt("Make your move! Type Rock, Paper,or Scissors");
+let playerInput = playerTextBox.value;
 let playerPoint = 0;
 let computerPoint = 0;
 let playerSelection = playerInput;
@@ -67,7 +67,7 @@ function playRound(playerSelection, computerSelection) {
     } 
 //}
 
-game();
+//game();
 
 let startGame = () => {
 let gameSheet = document.getElementById('#gameSheet');
@@ -76,7 +76,10 @@ compTextBox.setAttribute("type", "text");
 compTextBox.setAttribute("value", computerSelection);
 gameSheet.append(compTextBox);
 
-
+pplayerTextBox = document.createElement('INPUT');
+playerTextBox.setAttribute("type", "text");
+playerTextBox.setAttribute("value", "");
+gameSheet.append(playerTextBox);
 
 }
 
