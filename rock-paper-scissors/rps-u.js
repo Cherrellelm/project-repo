@@ -4,10 +4,11 @@ let playOptions = ["rock", "paper", "scissors"];
 let playerInput = prompt("Make your move! Type Rock, Paper,or Scissors");
 let playerPoint = 0;
 let computerPoint = 0;
- let playerSelection = playerInput;
+let playerSelection = playerInput;
 let computerSelection = playOptions[Math.floor(Math.random() * playOptions.length)];
 
 let playBtn = document.querySelector("#playBtn");
+
 
 playerSelection = playerSelection.toLowerCase();
 
@@ -43,7 +44,7 @@ function playRound(playerSelection, computerSelection) {
     }
   }
   
-  function game (){
+  /*function game (){
     for (let counter = 0; counter < 5; counter++) {
 
         if (counter => 1) {
@@ -52,7 +53,7 @@ function playRound(playerSelection, computerSelection) {
 
         playRound(playerSelection, computerSelection);
         computerSelection = playOptions[Math.floor(Math.random() * playOptions.length)];
-    }
+    }*/
 
     console.log(`Player score = ${playerPoint} | Computer score = ${computerPoint}`)
     if (playerPoint > computerPoint) {
@@ -64,15 +65,19 @@ function playRound(playerSelection, computerSelection) {
     if (playerPoint == computerPoint) {
         console.log("It's a draw, play again!");
     } 
-}
+//}
 
 game();
 
-
-playBtn.addEventListener ('click',() => startGame());
-
 let startGame = () => {
-    
+let gameSheet = document.getElementById('#gameSheet');
+compTextBox = document.createElement('INPUT');
+compTextBox.setAttribute("type", "text");
+compTextBox.setAttribute("value", computerSelection);
+gameSheet.append(compTextBox);
+
+
 
 }
 
+playBtn.addEventListener ('click',() => startGame());
