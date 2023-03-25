@@ -1,7 +1,7 @@
 //Let's play rock, paper, scissors - The Correct Code
 let playOptions = ["rock", "paper", "scissors"];
 
-let playerInput = "rock";
+let playerInput = prompt("Make a choice, choose rock, paper, or scissors!");
 let playerPoint = 0;
 let computerPoint = 0;
 let playerSelection = playerInput;
@@ -11,33 +11,7 @@ let playBtn = document.querySelector("#playBtn");
 
 playerSelection = playerSelection.toLowerCase();
 
-//playBtn.addEventListener ('click',() => gameDisplay());
-//playerTextBox.addEventListener()
 
-//let gameDisplay = () => {
-   /* let gameSheet = document.getElementById('#gameSheet');
-    let compLabel = document.createElement("LABEL");
-    compLabel.setAttribute("for", "Computer Choice");
-    compLabel.value = "Computer Choice";
-    gameSheet.appendChild(compLabel);
-
-    let compTextBox = document.createElement("INPUT");
-    compTextBox.setAttribute("type", "text", "id");
-    compTextBox.value = computerSelection;
-    gameSheet.appendChild(compTextBox);
-    
-    let playerLabel = document.createElement("LABEL");
-    playerLabel.setAttribute("for", "Player Choice");
-    playerLabel.value = "Computer Choice";
-    gameSheet.appendChild(playerLabel);
-
-
-    let playerTextBox = document.createElement('INPUT');
-    playerTextBox.setAttribute("type", "text", "id");
-    playerTextBox.value = playerInput
-    gameSheet.appendChild(playerTextBox);
-    }*/
-   
 
 function playRound(playerSelection, computerSelection) {
     console.log("Player Selection is " + playerSelection);
