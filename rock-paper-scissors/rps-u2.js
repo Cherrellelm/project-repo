@@ -1,22 +1,38 @@
 let playOptions = ["rock", "paper", "scissors"];
 
-let playerInput = "rock";
+let playerInput ="paper";
 let playerPoint = 0;
 let computerPoint = 0;
 let playerSelection = playerInput;
 let computerSelection = playOptions[Math.floor(Math.random() * playOptions.length)];
 
+
 let playBtn = document.querySelector("#playBtn");
+let gameSheet = document.querySelector("#gameSheet");
 
 playerSelection = playerSelection.toLowerCase();
 
-playBtn.addEventListener ('click',() => gameDisplay());
+playBtn.addEventListener ('click', () => gameDisplay(), {once:true} );
+
 //playerTextBox.addEventListener()
 
 //Name: <input type="text" id="myText" value="Rock" />
 let gameDisplay = () => {
-    let gameSheet = document.getElementById("gameSheet");
-    gameSheet = document.createElement("input");
+    
+    playerText = document.createElement("input");
+    //playerText.text = "Player selection:",
+    playerText.setAttribute("type", "text");
+    playerText.setAttribute("value", "add your choice");
+    gameSheet.appendChild(playerText);
+
+    computerText = document.createElement("input");
+    //computerText.text = "Player selection:",
+    computerText.setAttribute("type", "text");
+    computerText.setAttribute("value", computerSelection);
+    gameSheet.appendChild(computerText);
+
+    playRound();
+    
     }
    
 
@@ -52,7 +68,7 @@ function playRound(playerSelection, computerSelection) {
     }
   }
   
-  function gameRepeat (){
+  /*function gameRepeat (){
     for (let counter = 0; counter < 5; counter++) {
 
         if (counter => 1) {
@@ -61,7 +77,7 @@ function playRound(playerSelection, computerSelection) {
 
         playRound(playerSelection, computerSelection);
         computerSelection = playOptions[Math.floor(Math.random() * playOptions.length)];
-    }
+    }*/
 
     console.log(`Player score = ${playerPoint} | Computer score = ${computerPoint}`)
     if (playerPoint > computerPoint) {
@@ -73,7 +89,7 @@ function playRound(playerSelection, computerSelection) {
     if (playerPoint == computerPoint) {
         console.log("It's a draw, play again!");
     } 
-}
+//}
 
-gameRepeat();
+//gameRepeat();
 //<input></input>
