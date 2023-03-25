@@ -1,7 +1,7 @@
 //Let's play rock, paper, scissors - The Correct Code
 let playOptions = ["rock", "paper", "scissors"];
 
-let playerInput = playerTextBox.value;
+let playerInput = "rock";
 let playerPoint = 0;
 let computerPoint = 0;
 let playerSelection = playerInput;
@@ -9,8 +9,35 @@ let computerSelection = playOptions[Math.floor(Math.random() * playOptions.lengt
 
 let playBtn = document.querySelector("#playBtn");
 
-
 playerSelection = playerSelection.toLowerCase();
+
+//playBtn.addEventListener ('click',() => gameDisplay());
+//playerTextBox.addEventListener()
+
+//let gameDisplay = () => {
+   /* let gameSheet = document.getElementById('#gameSheet');
+    let compLabel = document.createElement("LABEL");
+    compLabel.setAttribute("for", "Computer Choice");
+    compLabel.value = "Computer Choice";
+    gameSheet.appendChild(compLabel);
+
+    let compTextBox = document.createElement("INPUT");
+    compTextBox.setAttribute("type", "text", "id");
+    compTextBox.value = computerSelection;
+    gameSheet.appendChild(compTextBox);
+    
+    let playerLabel = document.createElement("LABEL");
+    playerLabel.setAttribute("for", "Player Choice");
+    playerLabel.value = "Computer Choice";
+    gameSheet.appendChild(playerLabel);
+
+
+    let playerTextBox = document.createElement('INPUT');
+    playerTextBox.setAttribute("type", "text", "id");
+    playerTextBox.value = playerInput
+    gameSheet.appendChild(playerTextBox);
+    }*/
+   
 
 function playRound(playerSelection, computerSelection) {
     console.log("Player Selection is " + playerSelection);
@@ -44,7 +71,7 @@ function playRound(playerSelection, computerSelection) {
     }
   }
   
-  /*function game (){
+  function gameRepeat (){
     for (let counter = 0; counter < 5; counter++) {
 
         if (counter => 1) {
@@ -53,7 +80,7 @@ function playRound(playerSelection, computerSelection) {
 
         playRound(playerSelection, computerSelection);
         computerSelection = playOptions[Math.floor(Math.random() * playOptions.length)];
-    }*/
+    }
 
     console.log(`Player score = ${playerPoint} | Computer score = ${computerPoint}`)
     if (playerPoint > computerPoint) {
@@ -65,22 +92,7 @@ function playRound(playerSelection, computerSelection) {
     if (playerPoint == computerPoint) {
         console.log("It's a draw, play again!");
     } 
-//}
-
-//game();
-
-let startGame = () => {
-let gameSheet = document.getElementById('#gameSheet');
-compTextBox = document.createElement('INPUT');
-compTextBox.setAttribute("type", "text");
-compTextBox.setAttribute("value", computerSelection);
-gameSheet.append(compTextBox);
-
-pplayerTextBox = document.createElement('INPUT');
-playerTextBox.setAttribute("type", "text");
-playerTextBox.setAttribute("value", "");
-gameSheet.append(playerTextBox);
-
 }
 
-playBtn.addEventListener ('click',() => startGame());
+gameRepeat();
+//<input></input>
