@@ -19,17 +19,21 @@ playBtn.addEventListener ('click', () => gameDisplay(), {once:true} );
 //Name: <input type="text" id="myText" value="Rock" />
 let gameDisplay = () => {
     
+    let playDiv = document.createElement("div");
     playerText = document.createElement("input");
     //playerText.text = "Player selection:",
     playerText.setAttribute("type", "text");
     playerText.setAttribute("value", "add your choice");
-    gameSheet.appendChild(playerText);
+    gameSheet.appendChild(playDiv);
+    playDiv.appendChild(playerText);
 
+    let compDiv = document.createElement("div");
     computerText = document.createElement("input");
     //computerText.text = "Player selection:",
     computerText.setAttribute("type", "text");
     computerText.setAttribute("value", computerSelection);
-    gameSheet.appendChild(computerText);
+    gameSheet.appendChild(compDiv);
+    compDiv.appendChild(computerText);
 
     playRound();
     
