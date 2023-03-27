@@ -9,4 +9,6 @@ flex: 1;
 
 .gameSheet {
 padding: 35px;
+display: flex;
+flex-direction: row;
 }
