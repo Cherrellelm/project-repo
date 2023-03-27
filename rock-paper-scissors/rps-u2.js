@@ -26,7 +26,7 @@ let gameDisplay = () => {
   playerText.setAttribute("value", "add your choice");
   gameSheet.appendChild(playDiv);
   playDiv.appendChild(playerText);
-  document.getElementById("playerText").style.margin = "50px 10px 20px 30px";
+  document.getElementById("playerText").style.margin = "7px 10px 20px 30px";
 
   let compDiv = document.createElement("div");
   let computerText = document.createElement("input");
@@ -36,7 +36,8 @@ let gameDisplay = () => {
   computerText.setAttribute("value", computerSelection);
   gameSheet.appendChild(compDiv);
   compDiv.appendChild(computerText);
-  document.getElementById("computerText").style.margin = "50px 10px 20px 30px";
+  document.getElementById("computerText").style.margin = "7px 10px 20px 30px";
+  document.getElementById("computerText").readOnly = true;
 
   playRound();
 };
