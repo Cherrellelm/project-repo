@@ -1,6 +1,6 @@
 let playOptions = ["rock", "paper", "scissors"];
 
-let playerInput = "paper";
+let playerInput = document.getElementById("playerText");
 let playerPoint = 0;
 let computerPoint = 0;
 let playerSelection = playerInput;
@@ -9,24 +9,29 @@ let computerSelection =
 
 let playBtn = document.querySelector("#playBtn");
 let gameSheet = document.querySelector("#gameSheet");
-
-playerSelection = playerSelection.toLowerCase();
+//playerSelection = playerSelection.toLowerCase();
 
 playBtn.addEventListener("click", () => gameDisplay(), { once: true });
-
+playerInput.addEventListener("change", () => playRound());
+//playerText.addEventListener("change", () => playRound);
 //playerTextBox.addEventListener()
 
 //Name: <input type="text" id="myText" value="Rock" />
 let gameDisplay = () => {
+  /*let gameBorder = (document.getElementById("gameSheet").style.border =
+    "thick solid #000000");
+  let gameBorderId = "gameBorder";
+    gameBorder.setAttribute("id", gameBorderId);*/
   let playDiv = document.createElement("div");
   let playerTextId = "playerText";
   let playerText = document.createElement("input");
   playerText.setAttribute("id", playerTextId);
   playerText.setAttribute("type", "text");
-  playerText.setAttribute("value", "add your choice");
+  playerText.setAttribute("value", "Make a selection");
   gameSheet.appendChild(playDiv);
   playDiv.appendChild(playerText);
-  document.getElementById("playerText").style.margin = "7px 10px 20px 30px";
+  //playDiv.appendChild(gameBorderId);
+  document.getElementById("playerText").style.margin = "7px 30px 20px 30px";
 
   let compDiv = document.createElement("div");
   let computerText = document.createElement("input");
@@ -38,8 +43,6 @@ let gameDisplay = () => {
   compDiv.appendChild(computerText);
   document.getElementById("computerText").style.margin = "7px 10px 20px 30px";
   document.getElementById("computerText").readOnly = true;
-
-  playRound();
 };
 /*  let itemSelect = document.createElement("select");
   let itemSelectID = "itemDescription" + itemCount;
