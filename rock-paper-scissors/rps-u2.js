@@ -1,7 +1,7 @@
 let playOptions = ["rock", "paper", "scissors"];
 
-let playerInput = document.getElementById("playerText");
 let playerPoint = 0;
+let playerInput = "rock";
 let computerPoint = 0;
 let playerSelection = playerInput;
 let computerSelection =
@@ -9,14 +9,12 @@ let computerSelection =
 
 let playBtn = document.querySelector("#playBtn");
 let gameSheet = document.querySelector("#gameSheet");
+playerInput = document.querySelector("#playerText");
 //playerSelection = playerSelection.toLowerCase();
 
 playBtn.addEventListener("click", () => gameDisplay(), { once: true });
-playerInput.addEventListener("change", () => playRound());
-//playerText.addEventListener("change", () => playRound);
-//playerTextBox.addEventListener()
+//playerInput.addEventListener("input", () => playRound());
 
-//Name: <input type="text" id="myText" value="Rock" />
 let gameDisplay = () => {
   /*let gameBorder = (document.getElementById("gameSheet").style.border =
     "thick solid #000000");
@@ -32,7 +30,6 @@ let gameDisplay = () => {
   playDiv.appendChild(playerText);
   //playDiv.appendChild(gameBorderId);
   document.getElementById("playerText").style.margin = "7px 30px 20px 30px";
-
   let compDiv = document.createElement("div");
   let computerText = document.createElement("input");
   let computerTextId = "computerText";
@@ -43,17 +40,20 @@ let gameDisplay = () => {
   compDiv.appendChild(computerText);
   document.getElementById("computerText").style.margin = "7px 10px 20px 30px";
   document.getElementById("computerText").readOnly = true;
+
+  /*let outcomeText = document.createElement("div");
+  let outcomeTextId = "outcomeText";
+  outcomeText.setAttribute("id", outcomeTextId);
+  outcomeText = document.createElement("p");
+  outcomeText.textContent = score;*/
 };
-/*  let itemSelect = document.createElement("select");
-  let itemSelectID = "itemDescription" + itemCount;
-  itemSelect.setAttribute("id", itemSelectID); */
 
 function playRound(playerSelection, computerSelection) {
   console.log("Player Selection is " + playerSelection);
   console.log("Computer Selection is " + computerSelection);
 
   if (playerSelection == computerSelection) {
-    console.log("It's a draw!");
+    return "It's a draw!";
   }
   if (playerSelection == "rock" && computerSelection == "paper") {
     console.log("You lose, Paper covers Rock!");
@@ -91,9 +91,7 @@ function playRound(playerSelection, computerSelection) {
         computerSelection = playOptions[Math.floor(Math.random() * playOptions.length)];
     }*/
 
-console.log(
-  `Player score = ${playerPoint} | Computer score = ${computerPoint}`
-);
+let score = `Player score = ${playerPoint} | Computer score = ${computerPoint}`;
 if (playerPoint > computerPoint) {
   console.log("You win the game!");
 }
