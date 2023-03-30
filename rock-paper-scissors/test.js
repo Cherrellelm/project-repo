@@ -1,15 +1,11 @@
 let playerText = document.getElementById("playerText");
 let goBtn = document.getElementById("goBtn");
 let playDiv = document.getElementById("playDiv");
-let playerSelection = playerText.value;
+let playerSelection;
 
 //playerText.addEventListener("click", () => clearInput());
-playerText.addEventListener("textInput", () => textBox());
+//playerText.addEventListener("textInput", () => textBox());
 goBtn.addEventListener("click", () => clickBtn());
-
-function clearInput() {
-  return (playerText.value = "");
-}
 
 function textBox() {
   playerText.value = "";
@@ -17,6 +13,6 @@ function textBox() {
 }
 
 function clickBtn() {
-  return playerSelection;
-  console.log();
+  playerSelection = playerText.value;
+  console.log(playerSelection);
 }

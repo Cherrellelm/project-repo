@@ -1,16 +1,15 @@
 let playOptions = ["rock", "paper", "scissors"];
 
 let playerPoint = 0;
-let playerInput = "rock";
 let computerPoint = 0;
-let playerSelection = playerInput;
+let playerSelection;
 let computerSelection =
   playOptions[Math.floor(Math.random() * playOptions.length)];
 
 let playBtn = document.querySelector("#playBtn");
 let gameSheet = document.querySelector("#gameSheet");
-let startBtn = document.querySelector("#startBtn");
-playerInput = document.querySelector("#playerText");
+let playerText = document.querySelector("#playerText");
+let startBtn = document.getElementById("#startBtn");
 //playerSelection = playerSelection.toLowerCase();
 
 playBtn.addEventListener("click", () => playerInputBox(), { once: true });
@@ -24,11 +23,11 @@ let playerInputBox = () => {
     gameBorder.setAttribute("id", gameBorderId);*/
   let playDiv = document.createElement("div");
   let playerTextId = "playerText";
-  let playerText = document.createElement("input");
+  playerText = document.createElement("input");
   playDiv.setAttribute("id", "playDiv");
   playerText.setAttribute("id", playerTextId);
   playerText.setAttribute("type", "text");
-  playerText.setAttribute("placeholder", "Make a selection");
+  playerText.setAttribute("placeholder", "Type your selection...");
   gameSheet.appendChild(playDiv);
   playDiv.appendChild(playerText);
   //playDiv.appendChild(gameBorderId);
@@ -39,22 +38,25 @@ let playerInputBox = () => {
   startBtnDiv.setAttribute("class", "item");
   playDiv.append(startBtnDiv);
   startBtn = document.createElement("button");
-  startBtn.textContent = "Go!";
+  startBtn.textContent = "Start!";
   startBtn.setAttribute("id", startBtnId);
   startBtnDiv.appendChild(startBtn);
 
+  startBtn.addEventListener("click", () => clickStartBtn(), { once: true });
   startBtn.addEventListener("click", () => compBox(), { once: true });
-
-  /*      <div class="item">
+  startBtn.addEventListener("click", () =>
+    playRound(playerSelection, computerSelection)
+  );
+};
+/*      <div class="item">
         <button id="startBtn">Go!</button>
       </div>*/
 
-  /*let outcomeText = document.createElement("div");
-  let outcomeTextId = "outcomeText";
-  outcomeText.setAttribute("id", outcomeTextId);
-  outcomeText = document.createElement("p");
-  outcomeText.textContent = score;*/
-};
+function clickStartBtn() {
+  playerSelection = playerText.value;
+  console.log(playerSelection);
+  return playerSelection;
+}
 
 let compBox = () => {
   let compDiv = document.createElement("div");
@@ -101,6 +103,45 @@ let playRound = (playerSelection, computerSelection) => {
   }
 };
 
+/*let playRound = (playerSelection, computerSelection) => {
+  console.log("Player Selection is " + playerSelection);
+  console.log("Computer Selection is " + computerSelection);
+
+  if (playerSelection == computerSelection) {
+    return "It's a draw!";
+  }
+  if (playerSelection == "rock" && computerSelection == "paper") {
+    console.log("You lose, Paper covers Rock!");
+    computerPoint++;
+  } else if (playerSelection == "rock" && computerSelection == "scissors") {
+    console.log("You win, Rock beats Scissors!");
+    playerPoint++;
+  }
+
+  if (playerSelection == "paper" && computerSelection == "rock") {
+    console.log("You win, Paper covers Rock!");
+    playerPoint++;
+  } else if (playerSelection == "paper" && computerSelection == "scissors") {
+    console.log("You lose, Scissors cuts Paper!");
+    computerPoint++;
+  }
+
+  if (playerSelection == "scissors" && computerSelection == "rock") {
+    console.log("You lose, Rock beats Scissors!");
+    computerPoint++;
+  } else if (playerSelection == "scissors" && computerSelection == "paper") {
+    console.log("You win, Scissors cuts Paper!");
+    playerPoint++;
+  }
+};*/
+
+/*let outcomeText = document.createElement("div");
+  let outcomeTextId = "outcomeText";
+  outcomeText.setAttribute("id", outcomeTextId);
+  outcomeText = document.createElement("p");
+  outcomeText.textContent = score;
+};*/
+
 /*function gameRepeat (){
     for (let counter = 0; counter < 5; counter++) {
 
@@ -125,4 +166,3 @@ if (playerPoint == computerPoint) {
 //}
 
 //gameRepeat();
-//<input></input>
