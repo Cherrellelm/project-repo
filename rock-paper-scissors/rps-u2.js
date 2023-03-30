@@ -9,13 +9,15 @@ let computerSelection =
 
 let playBtn = document.querySelector("#playBtn");
 let gameSheet = document.querySelector("#gameSheet");
+let startBtn = document.querySelector("#startBtn");
 playerInput = document.querySelector("#playerText");
 //playerSelection = playerSelection.toLowerCase();
 
-playBtn.addEventListener("click", () => gameDisplay(), { once: true });
+playBtn.addEventListener("click", () => playerInputBox(), { once: true });
+
 //playerInput.addEventListener("input", () => playRound());
 
-let gameDisplay = () => {
+let playerInputBox = () => {
   /*let gameBorder = (document.getElementById("gameSheet").style.border =
     "thick solid #000000");
   let gameBorderId = "gameBorder";
@@ -30,6 +32,30 @@ let gameDisplay = () => {
   playDiv.appendChild(playerText);
   //playDiv.appendChild(gameBorderId);
   document.getElementById("playerText").style.margin = "7px 30px 20px 30px";
+
+  let startBtnDiv = document.createElement("div");
+  let startBtnId = "startBtn";
+  startBtnDiv.setAttribute("class", "item");
+  playDiv.append(startBtnDiv);
+  startBtn = document.createElement("button");
+  startBtn.textContent = "Go!";
+  startBtn.setAttribute("id", startBtnId);
+  startBtnDiv.appendChild(startBtn);
+
+  startBtn.addEventListener("click", () => compBox(), { once: true });
+
+  /*      <div class="item">
+        <button id="startBtn">Go!</button>
+      </div>*/
+
+  /*let outcomeText = document.createElement("div");
+  let outcomeTextId = "outcomeText";
+  outcomeText.setAttribute("id", outcomeTextId);
+  outcomeText = document.createElement("p");
+  outcomeText.textContent = score;*/
+};
+
+let compBox = () => {
   let compDiv = document.createElement("div");
   let computerText = document.createElement("input");
   let computerTextId = "computerText";
@@ -40,15 +66,9 @@ let gameDisplay = () => {
   compDiv.appendChild(computerText);
   document.getElementById("computerText").style.margin = "7px 10px 20px 30px";
   document.getElementById("computerText").readOnly = true;
-
-  /*let outcomeText = document.createElement("div");
-  let outcomeTextId = "outcomeText";
-  outcomeText.setAttribute("id", outcomeTextId);
-  outcomeText = document.createElement("p");
-  outcomeText.textContent = score;*/
 };
 
-function playRound(playerSelection, computerSelection) {
+let playRound = (playerSelection, computerSelection) => {
   console.log("Player Selection is " + playerSelection);
   console.log("Computer Selection is " + computerSelection);
 
@@ -78,7 +98,7 @@ function playRound(playerSelection, computerSelection) {
     console.log("You win, Scissors cuts Paper!");
     playerPoint++;
   }
-}
+};
 
 /*function gameRepeat (){
     for (let counter = 0; counter < 5; counter++) {
