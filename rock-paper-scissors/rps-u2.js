@@ -25,6 +25,7 @@ let playerInputBox = () => {
   let playDiv = document.createElement("div");
   let playerTextId = "playerText";
   let playerText = document.createElement("input");
+  playDiv.setAttribute("id", "playDiv");
   playerText.setAttribute("id", playerTextId);
   playerText.setAttribute("type", "text");
   playerText.setAttribute("value", "Make a selection");
