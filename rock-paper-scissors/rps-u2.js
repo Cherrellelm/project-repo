@@ -5,7 +5,7 @@ let computerPoint = 0;
 let playerSelection;
 let computerSelection =
   playOptions[Math.floor(Math.random() * playOptions.length)];
-
+let outcomeValue;
 let playBtn = document.querySelector("#playBtn");
 let gameSheet = document.querySelector("#gameSheet");
 let playerText = document.querySelector("#playerText");
@@ -43,6 +43,7 @@ let playerInputBox = () => {
   startBtnDiv.appendChild(startBtn);
 
   startBtn.addEventListener("click", () => clickStartBtn(), { once: true });
+
   startBtn.addEventListener("click", () => compBox(), { once: true });
   startBtn.addEventListener("click", () =>
     playRound(playerSelection, computerSelection)
@@ -52,11 +53,30 @@ let playerInputBox = () => {
         <button id="startBtn">Go!</button>
       </div>*/
 
-function clickStartBtn() {
+let clickStartBtn = () => {
   playerSelection = playerText.value;
-  console.log(playerSelection);
+  //console.log(playerSelection);
   return playerSelection;
-}
+};
+
+let outComeDisplay = (outCome) => {
+  let outComeText = document.createElement("div");
+  let outComeTextId = "outcomeText";
+  outComeText.setAttribute("id", outComeTextId);
+  outComeText = document.createElement("p");
+  outComeText.textContent == outCome;
+  playDiv.append(outComeText);
+};
+
+let invalidInputDisplay = () => {
+  let invalidText = document.createElement("div");
+  let invalidTextId = "invalidText";
+  invalidText.setAttribute("id", invalidTextId);
+  invalidText = document.createElement("p");
+  invalidText.textContent =
+    "Your selection is invalid, please type rock, paper, or scissors.";
+  playDiv.append(invalidText);
+};
 
 let compBox = () => {
   let compDiv = document.createElement("div");
@@ -69,44 +89,48 @@ let compBox = () => {
   compDiv.appendChild(computerText);
   document.getElementById("computerText").style.margin = "7px 10px 20px 30px";
   document.getElementById("computerText").readOnly = true;
-};
 
-let playRound = (playerSelection, computerSelection) => {
-  console.log("Player Selection is " + playerSelection);
-  console.log("Computer Selection is " + computerSelection);
-
-  if (playerSelection == computerSelection) {
-    return "It's a draw!";
-  }
-  if (playerSelection == "rock" && computerSelection == "paper") {
-    console.log("You lose, Paper covers Rock!");
-    computerPoint++;
-  } else if (playerSelection == "rock" && computerSelection == "scissors") {
-    console.log("You win, Rock beats Scissors!");
-    playerPoint++;
-  }
-
-  if (playerSelection == "paper" && computerSelection == "rock") {
-    console.log("You win, Paper covers Rock!");
-    playerPoint++;
-  } else if (playerSelection == "paper" && computerSelection == "scissors") {
-    console.log("You lose, Scissors cuts Paper!");
-    computerPoint++;
-  }
-
-  if (playerSelection == "scissors" && computerSelection == "rock") {
-    console.log("You lose, Rock beats Scissors!");
-    computerPoint++;
-  } else if (playerSelection == "scissors" && computerSelection == "paper") {
-    console.log("You win, Scissors cuts Paper!");
-    playerPoint++;
-  }
+  outComeDisplay(outcomeValue);
 };
 
 /*let playRound = (playerSelection, computerSelection) => {
   console.log("Player Selection is " + playerSelection);
   console.log("Computer Selection is " + computerSelection);
 
+  let fOutcomeValue = outcomeValue;
+
+  if (playerSelection == computerSelection) {
+    fOutcomeValue == "It's a draw!";
+  }
+  if (playerSelection == "rock" && computerSelection == "paper") {
+    fOutcomeValue == "You lose, Paper covers Rock!";
+    computerPoint++;
+  } else if (playerSelection == "rock" && computerSelection == "scissors") {
+    fOutcomeValue == "You win, Rock beats Scissors!";
+    playerPoint++;
+  }
+
+  if (playerSelection == "paper" && computerSelection == "rock") {
+    fOutcomeValue = "You win, Paper covers Rock!";
+    playerPoint++;
+  } else if (playerSelection == "paper" && computerSelection == "scissors") {
+    fOutcomeValue = "You lose, Scissors cuts Paper!";
+    computerPoint++;
+  }
+
+  if (playerSelection == "scissors" && computerSelection == "rock") {
+    fOutcomeValue = "You lose, Rock beats Scissors!";
+    computerPoint++;
+  } else if (playerSelection == "scissors" && computerSelection == "paper") {
+    fOutcomeValue = "You win, Scissors cuts Paper!";
+    playerPoint++;
+  }
+};*/
+
+let playRound = (playerSelection, computerSelection) => {
+  //console.log("Player Selection is " + playerSelection);
+  //console.log("Computer Selection is " + computerSelection);
+
   if (playerSelection == computerSelection) {
     return "It's a draw!";
   }
@@ -133,25 +157,7 @@ let playRound = (playerSelection, computerSelection) => {
     console.log("You win, Scissors cuts Paper!");
     playerPoint++;
   }
-};*/
-
-/*let outcomeText = document.createElement("div");
-  let outcomeTextId = "outcomeText";
-  outcomeText.setAttribute("id", outcomeTextId);
-  outcomeText = document.createElement("p");
-  outcomeText.textContent = score;
-};*/
-
-/*function gameRepeat (){
-    for (let counter = 0; counter < 5; counter++) {
-
-        if (counter => 1) {
-        console.log("Round " + (counter +1));
-        }
-
-        playRound(playerSelection, computerSelection);
-        computerSelection = playOptions[Math.floor(Math.random() * playOptions.length)];
-    }*/
+};
 
 let score = `Player score = ${playerPoint} | Computer score = ${computerPoint}`;
 if (playerPoint > computerPoint) {
@@ -160,9 +166,15 @@ if (playerPoint > computerPoint) {
 if (playerPoint < computerPoint) {
   console.log("Sorry you lose, try again!");
 }
-if (playerPoint == computerPoint) {
+/*if (playerPoint == computerPoint) {
   console.log("It's a draw, play again!");
 }
-//}
 
-//gameRepeat();
+  if (!playerSelection.includes("rock")) {
+    invalidInputDisplay();
+  } else if (!playerSelection.includes("scissors")) {
+    invalidInputDisplay();
+  } else if (!playerSelection.includes("paper")) {
+    invalidInputDisplay();
+  }
+*/
