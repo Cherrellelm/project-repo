@@ -34,6 +34,8 @@ let playerInputBox = () => {
   //playDiv.appendChild(gameBorderId);
   document.getElementById("playerText").style.margin = "7px 30px 20px 30px";
 
+  playerText.addEventListener("click", () => clearInput());
+
   let startBtnDiv = document.createElement("div");
   let startBtnId = "startBtn";
   startBtnDiv.setAttribute("class", "item");
@@ -55,6 +57,10 @@ let playerInputBox = () => {
   outcomeText = document.createElement("p");
   outcomeText.textContent = score;*/
 };
+
+function clearInput() {
+  return (playerText.value = "");
+}
 
 let compBox = () => {
   let compDiv = document.createElement("div");
