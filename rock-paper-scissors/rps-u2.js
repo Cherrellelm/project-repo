@@ -5,7 +5,7 @@ let computerPoint = 0;
 let playerSelection;
 let computerSelection =
   playOptions[Math.floor(Math.random() * playOptions.length)];
-let outcomeValue;
+let fOutcomeValue;
 let playBtn = document.querySelector("#playBtn");
 let gameSheet = document.querySelector("#gameSheet");
 let playerText = document.querySelector("#playerText");
@@ -90,14 +90,12 @@ let compBox = () => {
   document.getElementById("computerText").style.margin = "7px 10px 20px 30px";
   document.getElementById("computerText").readOnly = true;
 
-  outComeDisplay(outcomeValue);
+  outComeDisplay(fOutcomeValue);
 };
 
-/*let playRound = (playerSelection, computerSelection) => {
+let playRound = (playerSelection, computerSelection) => {
   console.log("Player Selection is " + playerSelection);
   console.log("Computer Selection is " + computerSelection);
-
-  let fOutcomeValue = outcomeValue;
 
   if (playerSelection == computerSelection) {
     fOutcomeValue == "It's a draw!";
@@ -125,9 +123,9 @@ let compBox = () => {
     fOutcomeValue = "You win, Scissors cuts Paper!";
     playerPoint++;
   }
-};*/
+};
 
-let playRound = (playerSelection, computerSelection) => {
+/*let playRound = (playerSelection, computerSelection) => {
   //console.log("Player Selection is " + playerSelection);
   //console.log("Computer Selection is " + computerSelection);
 
@@ -157,7 +155,7 @@ let playRound = (playerSelection, computerSelection) => {
     console.log("You win, Scissors cuts Paper!");
     playerPoint++;
   }
-};
+};*/
 
 let score = `Player score = ${playerPoint} | Computer score = ${computerPoint}`;
 if (playerPoint > computerPoint) {
