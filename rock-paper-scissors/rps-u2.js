@@ -5,7 +5,8 @@ let computerPoint = 0;
 let playerSelection;
 let computerSelection =
   playOptions[Math.floor(Math.random() * playOptions.length)];
-let fOutcomeValue;
+let outcomeValue;
+let fOutcomeValue = outcomeValue;
 let playBtn = document.querySelector("#playBtn");
 let gameSheet = document.querySelector("#gameSheet");
 let playerText = document.querySelector("#playerText");
@@ -90,7 +91,7 @@ let compBox = () => {
   document.getElementById("computerText").style.margin = "7px 10px 20px 30px";
   document.getElementById("computerText").readOnly = true;
 
-  outComeDisplay(fOutcomeValue);
+  outComeDisplay(outcomeValue);
 };
 
 let playRound = (playerSelection, computerSelection) => {
