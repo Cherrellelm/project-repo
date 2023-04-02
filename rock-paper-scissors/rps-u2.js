@@ -5,8 +5,8 @@ let computerPoint = 0;
 let playerSelection;
 let computerSelection =
   playOptions[Math.floor(Math.random() * playOptions.length)];
-let outcomeValue;
-let fOutcomeValue = outcomeValue;
+let fOutcomeValue;
+let round;
 let playBtn = document.querySelector("#playBtn");
 let gameSheet = document.querySelector("#gameSheet");
 let playerText = document.querySelector("#playerText");
@@ -22,8 +22,15 @@ let playerInputBox = () => {
     "thick solid #000000");
   let gameBorderId = "gameBorder";
     gameBorder.setAttribute("id", gameBorderId);*/
+  let roundDiv = document.createElement("div");
+  round = 1;
+  roundDiv.textContent = "Round: " + round;
+  gameSheet.appendChild(roundDiv);
   let playDiv = document.createElement("div");
   let playerTextId = "playerText";
+  let playLabel = document.createElement("label");
+  playLabel.textContent = "Player Selection:";
+  playDiv.appendChild(playLabel);
   playerText = document.createElement("input");
   playDiv.setAttribute("id", "playDiv");
   playerText.setAttribute("id", playerTextId);
@@ -60,13 +67,14 @@ let clickStartBtn = () => {
   return playerSelection;
 };
 
-let outComeDisplay = (outCome) => {
-  let outComeText = document.createElement("div");
+let outComeDisplay = (outcome) => {
+  let outComeTextDiv = document.createElement("div");
   let outComeTextId = "outcomeText";
+  let outComeText = document.createElement("p");
   outComeText.setAttribute("id", outComeTextId);
-  outComeText = document.createElement("p");
-  outComeText.textContent == outCome;
-  playDiv.append(outComeText);
+  outComeText.textContent = fOutcomeValue;
+  playDiv.append(outComeTextDiv);
+  outComeTextDiv.appendChild(outComeText);
 };
 
 let invalidInputDisplay = () => {
@@ -83,6 +91,9 @@ let compBox = () => {
   let compDiv = document.createElement("div");
   let computerText = document.createElement("input");
   let computerTextId = "computerText";
+  let compLabel = document.createElement("label");
+  compLabel.textContent = "Computer Selection:";
+  compDiv.appendChild(compLabel);
   computerText.setAttribute("id", computerTextId);
   computerText.setAttribute("type", "text");
   computerText.setAttribute("value", computerSelection);
@@ -90,13 +101,17 @@ let compBox = () => {
   compDiv.appendChild(computerText);
   document.getElementById("computerText").style.margin = "7px 10px 20px 30px";
   document.getElementById("computerText").readOnly = true;
-
-  outComeDisplay(outcomeValue);
+  let outcomeDiv = document.createElement("div");
+  outcomeDiv.textContent = fOutcomeValue;
+  gameSheet.appendChild(outcomeDiv);
+  outComeDisplay(fOutcomeValue);
 };
 
 let playRound = (playerSelection, computerSelection) => {
   console.log("Player Selection is " + playerSelection);
   console.log("Computer Selection is " + computerSelection);
+
+  let fOutcomeValue;
 
   if (playerSelection == computerSelection) {
     fOutcomeValue == "It's a draw!";
@@ -128,7 +143,7 @@ let playRound = (playerSelection, computerSelection) => {
 
 /*let playRound = (playerSelection, computerSelection) => {
   //console.log("Player Selection is " + playerSelection);
-  //console.log("Computer Selection is " + computerSelection);
+  // console.log("Computer Selection is " + computerSelection);
 
   if (playerSelection == computerSelection) {
     return "It's a draw!";
