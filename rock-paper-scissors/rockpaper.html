@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="rps.css" />
     <title>Rock Paper Scissors</title>
   </head>
+
   <body>
     <div class="container">
       <div class="item">
@@ -21,8 +22,30 @@
       <div class="item">
         <button id="playBtn">Let's Play</button>
       </div>
-      <div>
-        <div class="item gameSheet" id="gameSheet"></div>
+      <div class="item blueline" id="gameSheet">
+        <div id="divPlayRound0" class="graybg redline">
+          <div class="item greenline">Round: 0</div>
+          <div id="divChoices0" class="container choices greenline">
+            <div class="item greenline">
+              <label>Player Selection:</label>
+              <input
+                id="playerText0"
+                type="text"
+                placeholder="Type your selection..."
+              />
+            </div>
+            <div class="item greenline">
+              <label>Computer Selection:</label>
+              <input id="computerText" type="text" value="rock" readonly="" />
+            </div>
+          </div>
+          <div class="item greenline">
+            <button id="startBtn0">Rock Paper Scissors Shoot</button>
+          </div>
+          <div class="greenline">
+            <p id="outcomeText0" class="largetext">CNN Breaking News</p>
+          </div>
+        </div>
       </div>
     </div>
     <p id="message"></p>

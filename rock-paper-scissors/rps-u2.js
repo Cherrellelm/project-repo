@@ -1,45 +1,106 @@
+/*
+
+**** Global variable ****
+
+[X] A variable to count the rounds 
+[X] A variable to store the player selection and computer selection
+-- Remember to reset the values when we start a new round
+[X] A variable to store the round result ("HUMAN", "COMPUTER", "DRAW")
+
+
+Create a function to generate `divPlayRound` div
+-- Create `Round`
+---- Use global variable to increment the counter
+-- Create `divChoices` div to capture Player and Computer choices
+---- Make a pair of labels and textboxes
+------ Hide the Computer textbox
+-- Create `btnStart` button and click event `clickStartBtn()`
+-- Create the `output` paragraph
+
+
+clickStartBtn()
+-- Call function to generate a choice for the computer
+-- Call function to assign Computer's choice and show the Computer textbox
+-- Call function to decide the result
+-- Call function to show the result in the output box
+-- Call function to decide to play next round
+
+
+**** Nice to have ****
+[ ] Play multiple games
+[ ] Validate player's input
+
+*/
+
 let playOptions = ["rock", "paper", "scissors"];
 
+let round = 1;
+let playerSelection;
+let computerSelection; //playOptions[Math.floor(Math.random() * playOptions.length)]
+let roundResult;
 let playerPoint = 0;
 let computerPoint = 0;
-let playerSelection;
-let computerSelection =
-  playOptions[Math.floor(Math.random() * playOptions.length)];
 let fOutcomeValue;
-let round;
 let playBtn = document.querySelector("#playBtn");
 let gameSheet = document.querySelector("#gameSheet");
 let playerText = document.querySelector("#playerText");
 let startBtn = document.getElementById("#startBtn");
 //playerSelection = playerSelection.toLowerCase();
 
-playBtn.addEventListener("click", () => playerInputBox(), { once: true });
+playBtn.addEventListener("click", () => playRound(), { once: true });
 
-//playerInput.addEventListener("input", () => playRound());
+function playRound() {
+  // JP
+  // Adding outer div for each round of play
+  //<div id="divPlayRound0" class="graybg redline">
+  let divPlayRound = document.createElement("div");
+  let divPlayRoundId = `divPlayRound` + round;
+  divPlayRound.setAttribute("id", divPlayRoundId);
+  divPlayRound.setAttribute("class", "graybg redline");
 
-let playerInputBox = () => {
-  /*let gameBorder = (document.getElementById("gameSheet").style.border =
-    "thick solid #000000");
-  let gameBorderId = "gameBorder";
-    gameBorder.setAttribute("id", gameBorderId);*/
-  let roundDiv = document.createElement("div");
-  round = 1;
+  //<div id="divChoices0" class="container choices greenline">
+  let divChoices = document.createElement("div");
+  let divChoicesId = "divChoices" + round;
+  divChoices.setAttribute("id", divChoicesId);
+  divChoices.setAttribute("class", "container choices greenline");
+
+  let lblRound = document.createElement("label");
+  let lblRoundId = "lblRound" + round;
+  lblRound.setAttribute("id", lblRoundId);
+  lblRound.setAttribute("class", "greenline item");
+  lblRound.innerText = "Round: " + round;
+
+  gameSheet.appendChild(divPlayRound);
+  divPlayRound.append(divChoices);
+  divChoices.appendChild(lblRound);
+
+  /*let roundDiv = document.createElement("div");
+  // JP
+  // removed setting value 1 to `round`
   roundDiv.textContent = "Round: " + round;
-  gameSheet.appendChild(roundDiv);
+  // JP
+  //gameSheet.appendChild(roundDiv);
+  divPlayRound.appendChild(roundDiv);
+
   let playDiv = document.createElement("div");
   let playerTextId = "playerText";
   let playLabel = document.createElement("label");
   playLabel.textContent = "Player Selection:";
   playDiv.appendChild(playLabel);
+
   playerText = document.createElement("input");
   playDiv.setAttribute("id", "playDiv");
   playerText.setAttribute("id", playerTextId);
   playerText.setAttribute("type", "text");
   playerText.setAttribute("placeholder", "Type your selection...");
-  gameSheet.appendChild(playDiv);
+  // JP
+  //gameSheet.appendChild(playDiv);
+  divPlayRound.appendChild(playDiv);
+
   playDiv.appendChild(playerText);
   //playDiv.appendChild(gameBorderId);
-  document.getElementById("playerText").style.margin = "7px 30px 20px 30px";
+  // JP
+  //document.getElementById("playerText").style.margin = "7px 30px 20px 30px";
 
   let startBtnDiv = document.createElement("div");
   let startBtnId = "startBtn";
@@ -50,16 +111,13 @@ let playerInputBox = () => {
   startBtn.setAttribute("id", startBtnId);
   startBtnDiv.appendChild(startBtn);
 
-  startBtn.addEventListener("click", () => clickStartBtn(), { once: true });
 
+  startBtn.addEventListener("click", () => clickStartBtn(), { once: true });
   startBtn.addEventListener("click", () => compBox(), { once: true });
   startBtn.addEventListener("click", () =>
     playRound(playerSelection, computerSelection)
-  );
-};
-/*      <div class="item">
-        <button id="startBtn">Go!</button>
-      </div>*/
+  );*/
+}
 
 let clickStartBtn = () => {
   playerSelection = playerText.value;
@@ -107,11 +165,11 @@ let compBox = () => {
   outComeDisplay(fOutcomeValue);
 };
 
-let playRound = (playerSelection, computerSelection) => {
+/*let playRound = (playerSelection, computerSelection) => {
   console.log("Player Selection is " + playerSelection);
-  console.log("Computer Selection is " + computerSelection);
+  console.log("Computer Selection is " + computerSelection);*/
 
-  let fOutcomeValue;
+/* let fOutcomeValue;
 
   if (playerSelection == computerSelection) {
     fOutcomeValue == "It's a draw!";
@@ -139,38 +197,6 @@ let playRound = (playerSelection, computerSelection) => {
     fOutcomeValue = "You win, Scissors cuts Paper!";
     playerPoint++;
   }
-};
-
-/*let playRound = (playerSelection, computerSelection) => {
-  //console.log("Player Selection is " + playerSelection);
-  // console.log("Computer Selection is " + computerSelection);
-
-  if (playerSelection == computerSelection) {
-    return "It's a draw!";
-  }
-  if (playerSelection == "rock" && computerSelection == "paper") {
-    console.log("You lose, Paper covers Rock!");
-    computerPoint++;
-  } else if (playerSelection == "rock" && computerSelection == "scissors") {
-    console.log("You win, Rock beats Scissors!");
-    playerPoint++;
-  }
-
-  if (playerSelection == "paper" && computerSelection == "rock") {
-    console.log("You win, Paper covers Rock!");
-    playerPoint++;
-  } else if (playerSelection == "paper" && computerSelection == "scissors") {
-    console.log("You lose, Scissors cuts Paper!");
-    computerPoint++;
-  }
-
-  if (playerSelection == "scissors" && computerSelection == "rock") {
-    console.log("You lose, Rock beats Scissors!");
-    computerPoint++;
-  } else if (playerSelection == "scissors" && computerSelection == "paper") {
-    console.log("You win, Scissors cuts Paper!");
-    playerPoint++;
-  }
 };*/
 
 let score = `Player score = ${playerPoint} | Computer score = ${computerPoint}`;
@@ -180,15 +206,3 @@ if (playerPoint > computerPoint) {
 if (playerPoint < computerPoint) {
   console.log("Sorry you lose, try again!");
 }
-/*if (playerPoint == computerPoint) {
-  console.log("It's a draw, play again!");
-}
-
-  if (!playerSelection.includes("rock")) {
-    invalidInputDisplay();
-  } else if (!playerSelection.includes("scissors")) {
-    invalidInputDisplay();
-  } else if (!playerSelection.includes("paper")) {
-    invalidInputDisplay();
-  }
-*/
