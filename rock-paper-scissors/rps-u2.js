@@ -44,35 +44,100 @@ let fOutcomeValue;
 let playBtn = document.querySelector("#playBtn");
 let gameSheet = document.querySelector("#gameSheet");
 let playerText = document.querySelector("#playerText");
-let startBtn = document.getElementById("#startBtn");
+//let startBtn = document.getElementById("#startBtn");
 //playerSelection = playerSelection.toLowerCase();
 
 playBtn.addEventListener("click", () => playRound(), { once: true });
 
 function playRound() {
-  // JP
-  // Adding outer div for each round of play
-  //<div id="divPlayRound0" class="graybg redline">
   let divPlayRound = document.createElement("div");
   let divPlayRoundId = `divPlayRound` + round;
   divPlayRound.setAttribute("id", divPlayRoundId);
   divPlayRound.setAttribute("class", "graybg redline");
 
-  //<div id="divChoices0" class="container choices greenline">
+  let divLblRound = document.createElement("div");
+  let divLblRoundId = "divLblRound" + round;
+  divLblRound.setAttribute("id", divLblRoundId);
+  divLblRound.setAttribute("class", "item greenline");
+
+  let lblRound = document.createElement("label");
+  let lblRoundId = "lblRound" + round;
+  lblRound.setAttribute("id", lblRoundId);
+  lblRound.innerText = "Round: " + round;
+
   let divChoices = document.createElement("div");
   let divChoicesId = "divChoices" + round;
   divChoices.setAttribute("id", divChoicesId);
   divChoices.setAttribute("class", "container choices greenline");
 
-  let lblRound = document.createElement("label");
-  let lblRoundId = "lblRound" + round;
-  lblRound.setAttribute("id", lblRoundId);
-  lblRound.setAttribute("class", "greenline item");
-  lblRound.innerText = "Round: " + round;
+  let divPlayerChoice = document.createElement("div");
+  let divPlayerChoiceId = "divPlayerChoice" + round;
+  divPlayerChoice.setAttribute("id", divPlayerChoiceId);
+  divPlayerChoice.setAttribute("class", "item greenline");
+
+  let lblPlayerChoice = document.createElement("label");
+  let lblPlayerChoiceId = "lblPlayerChoice" + round;
+  lblPlayerChoice.setAttribute("id", lblPlayerChoiceId);
+  lblPlayerChoice.innerText = "Player Selection:";
+
+  let inputPlayerChoice = document.createElement("input");
+  let inputPlayerChoiceId = "playerText" + round;
+  inputPlayerChoice.setAttribute("id", inputPlayerChoiceId);
+  inputPlayerChoice.setAttribute("type", "text");
+  inputPlayerChoice.setAttribute("placeholder", "Type your selection...");
+
+  let divComputerChoice = document.createElement("div");
+  let divComputerChoiceId = "divComputerChoice" + round;
+  divComputerChoice.setAttribute("id", divComputerChoiceId);
+  divComputerChoice.setAttribute("class", "item greenline");
+
+  let lblComputerChoice = document.createElement("label");
+  let lblComputerChoiceId = "lblComputerChoice" + round;
+  lblComputerChoice.setAttribute("id", lblComputerChoiceId);
+  lblComputerChoice.innerText = "Computer Selection:";
+
+  let inputComputerChoice = document.createElement("input");
+  let inputComputerChoiceId = "computerText" + round;
+  inputComputerChoice.setAttribute("id", inputComputerChoiceId);
+  inputComputerChoice.setAttribute("type", "text");
+  inputComputerChoice.setAttribute("readonly", true);
+
+  /*
+            <div class="item greenline">
+            <button id="startBtn0">Rock Paper Scissors Shoot</button>
+          </div>
+          <div class="greenline">
+            <p id="outcomeText0" class="largetext">CNN Breaking News</p>
+          </div>
+  */
+
+  let startBtnDiv = document.createElement("div");
+  startBtnDiv.setAttribute("class", "item greenline");
+
+  let startBtn = document.createElement("button");
+  let startBtnId = "startBtn" + round;
+  startBtn.setAttribute("id", startBtnId);
+  startBtn.innerText = "Rock Paper Scissors Shoot";
+
+  divLblRound.appendChild(lblRound);
+  divPlayRound.appendChild(divLblRound);
+
+  divPlayerChoice.appendChild(lblPlayerChoice);
+  divPlayerChoice.appendChild(inputPlayerChoice);
+  divChoices.appendChild(divPlayerChoice);
+
+  divComputerChoice.appendChild(lblComputerChoice);
+  divComputerChoice.appendChild(inputComputerChoice);
+  divChoices.appendChild(divComputerChoice);
+
+  startBtnDiv.appendChild(startBtn);
+  //divChoices.append(startBtnDiv);
+
+  divPlayRound.appendChild(divChoices);
 
   gameSheet.appendChild(divPlayRound);
-  divPlayRound.append(divChoices);
-  divChoices.appendChild(lblRound);
+  //divPlayRound.append(divChoices);
+  // divChoices.appendChild(lblRound);
 
   /*let roundDiv = document.createElement("div");
   // JP
