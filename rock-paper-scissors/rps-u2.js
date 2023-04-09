@@ -45,7 +45,7 @@ let fOutcomeValue;
 let playBtn = document.querySelector("#playBtn");
 let gameSheet = document.querySelector("#gameSheet");
 let playerText = document.querySelector("#playerText");
-//let startBtn = document.getElementById("#startBtn");
+
 //playerSelection = playerSelection.toLowerCase();
 
 playBtn.addEventListener("click", () => playRound(), { once: true });
@@ -171,7 +171,11 @@ function playRound() {
 
   gameSheet.appendChild(divPlayRound);
 
+  selectPlayerChoice.addEventListener("change", () => enableStartBtn());
+
   startBtn.addEventListener("click", () => clickStartBtn(), { once: true });
+
+  startBtn = document.getElementById("startBtn" + round).disabled = true;
 
   divComputerChoice.style.display = "none";
 
@@ -220,12 +224,16 @@ function playRound() {
   );*/
 }
 
-let clickStartBtn = () => {
+function clickStartBtn() {
   getRandomChoice();
   assignComputerChoice();
   console.log("rock paper scissors " + computerSelection);
   //return playerSelection;
-};
+}
+
+function enableStartBtn() {
+  startBtn = document.getElementById("startBtn" + round).disabled = false;
+}
 
 function getRandomChoice() {
   computerSelection =
@@ -247,16 +255,6 @@ let outComeDisplay = (outcome) => {
   outComeText.textContent = fOutcomeValue;
   playDiv.append(outComeTextDiv);
   outComeTextDiv.appendChild(outComeText);
-};
-
-let invalidInputDisplay = () => {
-  let invalidText = document.createElement("div");
-  let invalidTextId = "invalidText";
-  invalidText.setAttribute("id", invalidTextId);
-  invalidText = document.createElement("p");
-  invalidText.textContent =
-    "Your selection is invalid, please type rock, paper, or scissors.";
-  playDiv.append(invalidText);
 };
 
 let compBox = () => {
