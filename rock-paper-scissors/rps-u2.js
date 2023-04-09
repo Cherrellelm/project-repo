@@ -33,6 +33,7 @@ clickStartBtn()
 */
 
 let playOptions = ["rock", "paper", "scissors"];
+let playValues = ["rk", "pr", "ss"];
 
 let round = 1;
 let playerSelection;
@@ -75,7 +76,7 @@ function playRound() {
   divPlayerChoice.setAttribute("id", divPlayerChoiceId);
   divPlayerChoice.setAttribute("class", "item greenline");
 
-  let lblPlayerChoice = document.createElement("label");
+  /*let lblPlayerChoice = document.createElement("label");
   let lblPlayerChoiceId = "lblPlayerChoice" + round;
   lblPlayerChoice.setAttribute("id", lblPlayerChoiceId);
   lblPlayerChoice.innerText = "Player Selection:";
@@ -85,6 +86,35 @@ function playRound() {
   inputPlayerChoice.setAttribute("id", inputPlayerChoiceId);
   inputPlayerChoice.setAttribute("type", "text");
   inputPlayerChoice.setAttribute("placeholder", "Type your selection...");
+  
+  
+                <select id="selectID">
+                <option value="" disabled selected hidden>
+                  Make your selection...
+                </option>
+                <option value="rock">Rock</option>
+                <option value="paper">Paper</option>
+                <option value="scissors">Scissors</option>
+              </select>
+            </div>*/
+
+  let selectPlayerChoice = document.createElement("select");
+  let selectPlayerChoiceId = "SelectPlayerChoice" + round;
+  selectPlayerChoice.setAttribute("id", selectPlayerChoiceId);
+
+  let optPlayerChoice = document.createElement("option");
+  optPlayerChoice.text = "Make your selection...";
+  optPlayerChoice.value = "";
+  optPlayerChoice.selected = true;
+  optPlayerChoice.disabled = true;
+  optPlayerChoice.hidden = true;
+
+  for (counter = 0; counter < playOptions.length; counter++) {
+    let optPlayerChoice = document.createElement("option");
+    optPlayerChoice.text = playOptions[counter];
+    optPlayerChoice.value = playValues[counter];
+    selectPlayerChoice.appendChild(optPlayerChoice);
+  }
 
   let divComputerChoice = document.createElement("div");
   let divComputerChoiceId = "divComputerChoice" + round;
@@ -121,8 +151,8 @@ function playRound() {
 
   divLblRound.appendChild(lblRound);
 
-  divPlayerChoice.appendChild(lblPlayerChoice);
-  divPlayerChoice.appendChild(inputPlayerChoice);
+  selectPlayerChoice.appendChild(optPlayerChoice);
+  divPlayerChoice.appendChild(selectPlayerChoice);
 
   divComputerChoice.appendChild(lblComputerChoice);
   divComputerChoice.appendChild(inputComputerChoice);
