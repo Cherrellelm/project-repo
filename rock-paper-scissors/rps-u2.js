@@ -8,20 +8,20 @@
 [X] A variable to store the round result ("HUMAN", "COMPUTER", "DRAW")
 
 
-Create a function to generate `divPlayRound` div
--- Create `Round`
----- Use global variable to increment the counter
--- Create `divChoices` div to capture Player and Computer choices
----- Make a pair of labels and textboxes
------- Hide the Computer textbox
--- Create `btnStart` button and click event `clickStartBtn()`
--- Create the `output` paragraph
+[X] Create a function to generate `divPlayRound` div
+[X]  Create `Round`
+[X] -- Use global variable to increment the counter
+[X] Create `divChoices` div to capture Player and Computer choices
+[X] - Make a pair of labels and textboxes
+[X]-- Hide the Computer textbox
+[X] Create `btnStart` button and click event `clickStartBtn()`
+[X] Create the `output` paragraph
 
 
 clickStartBtn()
--- Call function to generate a choice for the computer
--- Call function to assign Computer's choice and show the Computer textbox
--- Call function to decide the result
+[X] Call function to generate a choice for the computer
+[X] Call function to assign Computer's choice and show the Computer textbox
+[X] Call function to decide the result
 -- Call function to show the result in the output box
 -- Call function to decide to play next round
 
@@ -36,7 +36,7 @@ let playOptions = ["rock", "paper", "scissors"];
 
 let round = 1;
 let playerSelection;
-let computerSelection; //playOptions[Math.floor(Math.random() * playOptions.length)]
+let computerSelection;
 let roundResult;
 let playerPoint = 0;
 let computerPoint = 0;
@@ -102,15 +102,6 @@ function playRound() {
   inputComputerChoice.setAttribute("type", "text");
   inputComputerChoice.setAttribute("readonly", true);
 
-  /*
-            <div class="item greenline">
-            <button id="startBtn0">Rock Paper Scissors Shoot</button>
-          </div>
-          <div class="greenline">
-            <p id="outcomeText0" class="largetext">CNN Breaking News</p>
-          </div>
-  */
-
   let startBtnDiv = document.createElement("div");
   startBtnDiv.setAttribute("class", "item greenline");
 
@@ -119,25 +110,40 @@ function playRound() {
   startBtn.setAttribute("id", startBtnId);
   startBtn.innerText = "Rock Paper Scissors Shoot";
 
+  let outComeDiv = document.createElement("div");
+  outComeDiv.setAttribute("class", "greenline");
+
+  let outComeP = document.createElement("p");
+  let outComePId = "outcomeText" + round;
+  outComeP.setAttribute("id", outComePId);
+  outComeP.setAttribute("class", "largetext");
+  outComeP.innerText = "CNN Breaking News";
+
   divLblRound.appendChild(lblRound);
-  divPlayRound.appendChild(divLblRound);
 
   divPlayerChoice.appendChild(lblPlayerChoice);
   divPlayerChoice.appendChild(inputPlayerChoice);
-  divChoices.appendChild(divPlayerChoice);
 
   divComputerChoice.appendChild(lblComputerChoice);
   divComputerChoice.appendChild(inputComputerChoice);
+
+  divChoices.appendChild(divPlayerChoice);
   divChoices.appendChild(divComputerChoice);
 
   startBtnDiv.appendChild(startBtn);
-  //divChoices.append(startBtnDiv);
 
+  outComeDiv.appendChild(outComeP);
+
+  divPlayRound.appendChild(divLblRound);
   divPlayRound.appendChild(divChoices);
+  divPlayRound.appendChild(startBtnDiv);
+  divPlayRound.appendChild(outComeDiv);
 
   gameSheet.appendChild(divPlayRound);
-  //divPlayRound.append(divChoices);
-  // divChoices.appendChild(lblRound);
+
+  startBtn.addEventListener("click", () => clickStartBtn(), { once: true });
+
+  divComputerChoice.style.display = "none";
 
   /*let roundDiv = document.createElement("div");
   // JP
@@ -177,7 +183,7 @@ function playRound() {
   startBtnDiv.appendChild(startBtn);
 
 
-  startBtn.addEventListener("click", () => clickStartBtn(), { once: true });
+
   startBtn.addEventListener("click", () => compBox(), { once: true });
   startBtn.addEventListener("click", () =>
     playRound(playerSelection, computerSelection)
@@ -185,10 +191,23 @@ function playRound() {
 }
 
 let clickStartBtn = () => {
-  playerSelection = playerText.value;
-  //console.log(playerSelection);
-  return playerSelection;
+  getRandomChoice();
+  assignComputerChoice();
+  console.log("rock paper scissors " + computerSelection);
+  //return playerSelection;
 };
+
+function getRandomChoice() {
+  computerSelection =
+    playOptions[Math.floor(Math.random() * playOptions.length)];
+}
+
+function assignComputerChoice() {
+  let inputComputerChoice = document.getElementById("computerText" + round);
+  let divComputerChoice = document.getElementById("divComputerChoice" + round);
+  inputComputerChoice.value = computerSelection;
+  divComputerChoice.style.display = "block";
+}
 
 let outComeDisplay = (outcome) => {
   let outComeTextDiv = document.createElement("div");
