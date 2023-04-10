@@ -227,6 +227,8 @@ function playRound() {
 function clickStartBtn() {
   getRandomChoice();
   assignComputerChoice();
+  assignPlayerChoice();
+  playGame();
   console.log("rock paper scissors " + computerSelection);
   //return playerSelection;
 }
@@ -247,6 +249,27 @@ function assignComputerChoice() {
   divComputerChoice.style.display = "block";
 }
 
+function assignPlayerChoice() {
+  let selectPlayerChoice = document.getElementById(
+    "SelectPlayerChoice" + round
+  );
+
+  let optPlayerChoice = document.createElement("option");
+  optPlayerChoice.text = "Make your selection...";
+  optPlayerChoice.value = "";
+  optPlayerChoice.selected = true;
+  optPlayerChoice.disabled = true;
+  optPlayerChoice.hidden = true;
+
+  for (counter = 0; counter < playOptions.length; counter++) {
+    let optPlayerChoice = document.createElement("option");
+    optPlayerChoice.text = playOptions[counter];
+    optPlayerChoice.value = playValues[counter];
+  }
+
+  optPlayerChoice == playerSelection;
+}
+
 let outComeDisplay = (outcome) => {
   let outComeTextDiv = document.createElement("div");
   let outComeTextId = "outcomeText";
@@ -257,7 +280,7 @@ let outComeDisplay = (outcome) => {
   outComeTextDiv.appendChild(outComeText);
 };
 
-let compBox = () => {
+/*let compBox = () => {
   let compDiv = document.createElement("div");
   let computerText = document.createElement("input");
   let computerTextId = "computerText";
@@ -275,46 +298,44 @@ let compBox = () => {
   outcomeDiv.textContent = fOutcomeValue;
   gameSheet.appendChild(outcomeDiv);
   outComeDisplay(fOutcomeValue);
-};
+};*/
 
-/*let playRound = (playerSelection, computerSelection) => {
+function playGame() {
   console.log("Player Selection is " + playerSelection);
-  console.log("Computer Selection is " + computerSelection);*/
-
-/* let fOutcomeValue;
+  console.log("Computer Selection is " + computerSelection);
 
   if (playerSelection == computerSelection) {
-    fOutcomeValue == "It's a draw!";
+    console.log("It's a draw!");
   }
   if (playerSelection == "rock" && computerSelection == "paper") {
-    fOutcomeValue == "You lose, Paper covers Rock!";
+    console.log("You lose, Paper covers Rock!");
     computerPoint++;
   } else if (playerSelection == "rock" && computerSelection == "scissors") {
-    fOutcomeValue == "You win, Rock beats Scissors!";
+    console.log("You win, Rock beats Scissors!");
     playerPoint++;
   }
 
   if (playerSelection == "paper" && computerSelection == "rock") {
-    fOutcomeValue = "You win, Paper covers Rock!";
+    console.log("You win, Paper covers Rock!");
     playerPoint++;
   } else if (playerSelection == "paper" && computerSelection == "scissors") {
-    fOutcomeValue = "You lose, Scissors cuts Paper!";
+    console.log("You lose, Scissors cuts Paper!");
     computerPoint++;
   }
 
   if (playerSelection == "scissors" && computerSelection == "rock") {
-    fOutcomeValue = "You lose, Rock beats Scissors!";
+    console.log("You lose, Rock beats Scissors!");
     computerPoint++;
   } else if (playerSelection == "scissors" && computerSelection == "paper") {
-    fOutcomeValue = "You win, Scissors cuts Paper!";
+    console.log("You win, Scissors cuts Paper!");
     playerPoint++;
   }
-};*/
+}
 
-let score = `Player score = ${playerPoint} | Computer score = ${computerPoint}`;
+/*let score = `Player score = ${playerPoint} | Computer score = ${computerPoint}`;
 if (playerPoint > computerPoint) {
   console.log("You win the game!");
 }
 if (playerPoint < computerPoint) {
   console.log("Sorry you lose, try again!");
-}
+}*/
