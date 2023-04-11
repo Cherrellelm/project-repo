@@ -116,8 +116,6 @@ function playRound() {
     selectPlayerChoice.appendChild(optPlayerChoice);
   }
 
-  playerSelection = playOptions[counter];
-
   let divComputerChoice = document.createElement("div");
   let divComputerChoiceId = "divComputerChoice" + round;
   divComputerChoice.setAttribute("id", divComputerChoiceId);
@@ -255,8 +253,7 @@ function assignPlayerChoice() {
   let selectPlayerChoice = document.getElementById(
     "SelectPlayerChoice" + round
   );
-  selectPlayerChoice;
-
+  playerSelection = selectPlayerChoice.value;
   //playerSelection = optPlayerChoice.value;
   // document.querySelector('.output').textContent = output;
 }
