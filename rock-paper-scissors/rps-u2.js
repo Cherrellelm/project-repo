@@ -33,7 +33,7 @@ clickStartBtn()
 */
 
 let playOptions = ["rock", "paper", "scissors"];
-let playValues = ["rk", "pr", "ss"];
+let playValues = ["rock", "paper", "scissors"];
 
 let round = 1;
 let playerSelection;
@@ -115,6 +115,8 @@ function playRound() {
     optPlayerChoice.value = playValues[counter];
     selectPlayerChoice.appendChild(optPlayerChoice);
   }
+
+  playerSelection = playOptions[counter];
 
   let divComputerChoice = document.createElement("div");
   let divComputerChoiceId = "divComputerChoice" + round;
@@ -253,21 +255,10 @@ function assignPlayerChoice() {
   let selectPlayerChoice = document.getElementById(
     "SelectPlayerChoice" + round
   );
+  selectPlayerChoice;
 
-  let optPlayerChoice = document.createElement("option");
-  optPlayerChoice.text = "Make your selection...";
-  optPlayerChoice.value = "";
-  optPlayerChoice.selected = true;
-  optPlayerChoice.disabled = true;
-  optPlayerChoice.hidden = true;
-
-  for (counter = 0; counter < playOptions.length; counter++) {
-    let optPlayerChoice = document.createElement("option");
-    optPlayerChoice.text = playOptions[counter];
-    optPlayerChoice.value = playValues[counter];
-  }
-
-  optPlayerChoice == playerSelection;
+  //playerSelection = optPlayerChoice.value;
+  // document.querySelector('.output').textContent = output;
 }
 
 let outComeDisplay = (outcome) => {
