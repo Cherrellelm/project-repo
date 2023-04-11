@@ -22,7 +22,7 @@ clickStartBtn()
 [X] Call function to generate a choice for the computer
 [X] Call function to assign Computer's choice and show the Computer textbox
 [X] Call function to decide the result
--- Call function to show the result in the output box
+[X] Call function to show the result in the output box
 -- Call function to decide to play next round
 
 
@@ -41,7 +41,7 @@ let computerSelection;
 let roundResult;
 let playerPoint = 0;
 let computerPoint = 0;
-let fOutcomeValue;
+let gameOutcome;
 let playBtn = document.querySelector("#playBtn");
 let gameSheet = document.querySelector("#gameSheet");
 let playerText = document.querySelector("#playerText");
@@ -147,7 +147,7 @@ function playRound() {
   let outComePId = "outcomeText" + round;
   outComeP.setAttribute("id", outComePId);
   outComeP.setAttribute("class", "largetext");
-  outComeP.innerText = "CNN Breaking News";
+  outComeP.innerText = "";
 
   divLblRound.appendChild(lblRound);
 
@@ -229,6 +229,7 @@ function clickStartBtn() {
   assignComputerChoice();
   assignPlayerChoice();
   playGame();
+  outComeDisplay(gameOutcome);
   console.log("rock paper scissors " + computerSelection);
   //return playerSelection;
 }
@@ -254,19 +255,12 @@ function assignPlayerChoice() {
     "SelectPlayerChoice" + round
   );
   playerSelection = selectPlayerChoice.value;
-  //playerSelection = optPlayerChoice.value;
-  // document.querySelector('.output').textContent = output;
 }
 
-let outComeDisplay = (outcome) => {
-  let outComeTextDiv = document.createElement("div");
-  let outComeTextId = "outcomeText";
-  let outComeText = document.createElement("p");
-  outComeText.setAttribute("id", outComeTextId);
-  outComeText.textContent = fOutcomeValue;
-  playDiv.append(outComeTextDiv);
-  outComeTextDiv.appendChild(outComeText);
-};
+function outComeDisplay(outcome) {
+  let outComeP = document.getElementById("outcomeText" + round);
+  outComeP.innerText = gameOutcome;
+}
 
 /*let compBox = () => {
   let compDiv = document.createElement("div");
@@ -293,28 +287,35 @@ function playGame() {
   console.log("Computer Selection is " + computerSelection);
 
   if (playerSelection == computerSelection) {
+    gameOutcome = "It's a draw!";
     console.log("It's a draw!");
   }
   if (playerSelection == "rock" && computerSelection == "paper") {
+    gameOutcome = "You lose, Paper covers Rock!";
     console.log("You lose, Paper covers Rock!");
     computerPoint++;
   } else if (playerSelection == "rock" && computerSelection == "scissors") {
+    gameOutcome = "You win, Rock beats Scissors!";
     console.log("You win, Rock beats Scissors!");
     playerPoint++;
   }
 
   if (playerSelection == "paper" && computerSelection == "rock") {
+    gameOutcome = "You win, Paper covers Rock!";
     console.log("You win, Paper covers Rock!");
     playerPoint++;
   } else if (playerSelection == "paper" && computerSelection == "scissors") {
+    gameOutcome = "You lose, Scissors cuts Paper!";
     console.log("You lose, Scissors cuts Paper!");
     computerPoint++;
   }
 
   if (playerSelection == "scissors" && computerSelection == "rock") {
+    gameOutcome = "You lose, Rock beats Scissors!";
     console.log("You lose, Rock beats Scissors!");
     computerPoint++;
   } else if (playerSelection == "scissors" && computerSelection == "paper") {
+    gameOutcome = "You win, Scissors cuts Paper!";
     console.log("You win, Scissors cuts Paper!");
     playerPoint++;
   }
