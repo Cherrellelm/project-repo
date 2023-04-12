@@ -23,18 +23,18 @@ clickStartBtn()
 [X] Call function to assign Computer's choice and show the Computer textbox
 [X] Call function to decide the result
 [X] Call function to show the result in the output box
--- Call function to decide to play next round
+[X]Call function to decide to play next round
 
 
 **** Nice to have ****
 [ ] Play multiple games
-[ ] Validate player's input
 
 */
 
 let playOptions = ["rock", "paper", "scissors"];
 let playValues = ["rock", "paper", "scissors"];
 
+let isDraw = true;
 let round = 1;
 let playerSelection;
 let computerSelection;
@@ -45,8 +45,6 @@ let gameOutcome;
 let playBtn = document.querySelector("#playBtn");
 let gameSheet = document.querySelector("#gameSheet");
 let playerText = document.querySelector("#playerText");
-
-//playerSelection = playerSelection.toLowerCase();
 
 playBtn.addEventListener("click", () => playRound(), { once: true });
 
@@ -75,28 +73,6 @@ function playRound() {
   let divPlayerChoiceId = "divPlayerChoice" + round;
   divPlayerChoice.setAttribute("id", divPlayerChoiceId);
   divPlayerChoice.setAttribute("class", "item greenline");
-
-  /*let lblPlayerChoice = document.createElement("label");
-  let lblPlayerChoiceId = "lblPlayerChoice" + round;
-  lblPlayerChoice.setAttribute("id", lblPlayerChoiceId);
-  lblPlayerChoice.innerText = "Player Selection:";
-
-  let inputPlayerChoice = document.createElement("input");
-  let inputPlayerChoiceId = "playerText" + round;
-  inputPlayerChoice.setAttribute("id", inputPlayerChoiceId);
-  inputPlayerChoice.setAttribute("type", "text");
-  inputPlayerChoice.setAttribute("placeholder", "Type your selection...");
-  
-  
-                <select id="selectID">
-                <option value="" disabled selected hidden>
-                  Make your selection...
-                </option>
-                <option value="rock">Rock</option>
-                <option value="paper">Paper</option>
-                <option value="scissors">Scissors</option>
-              </select>
-            </div>*/
 
   let selectPlayerChoice = document.createElement("select");
   let selectPlayerChoiceId = "SelectPlayerChoice" + round;
@@ -178,50 +154,6 @@ function playRound() {
   startBtn = document.getElementById("startBtn" + round).disabled = true;
 
   divComputerChoice.style.display = "none";
-
-  /*let roundDiv = document.createElement("div");
-  // JP
-  // removed setting value 1 to `round`
-  roundDiv.textContent = "Round: " + round;
-  // JP
-  //gameSheet.appendChild(roundDiv);
-  divPlayRound.appendChild(roundDiv);
-
-  let playDiv = document.createElement("div");
-  let playerTextId = "playerText";
-  let playLabel = document.createElement("label");
-  playLabel.textContent = "Player Selection:";
-  playDiv.appendChild(playLabel);
-
-  playerText = document.createElement("input");
-  playDiv.setAttribute("id", "playDiv");
-  playerText.setAttribute("id", playerTextId);
-  playerText.setAttribute("type", "text");
-  playerText.setAttribute("placeholder", "Type your selection...");
-  // JP
-  //gameSheet.appendChild(playDiv);
-  divPlayRound.appendChild(playDiv);
-
-  playDiv.appendChild(playerText);
-  //playDiv.appendChild(gameBorderId);
-  // JP
-  //document.getElementById("playerText").style.margin = "7px 30px 20px 30px";
-
-  let startBtnDiv = document.createElement("div");
-  let startBtnId = "startBtn";
-  startBtnDiv.setAttribute("class", "item");
-  playDiv.append(startBtnDiv);
-  startBtn = document.createElement("button");
-  startBtn.textContent = "Start!";
-  startBtn.setAttribute("id", startBtnId);
-  startBtnDiv.appendChild(startBtn);
-
-
-
-  startBtn.addEventListener("click", () => compBox(), { once: true });
-  startBtn.addEventListener("click", () =>
-    playRound(playerSelection, computerSelection)
-  );*/
 }
 
 function clickStartBtn() {
@@ -231,7 +163,11 @@ function clickStartBtn() {
   playGame();
   outComeDisplay(gameOutcome);
   console.log("rock paper scissors " + computerSelection);
-  //return playerSelection;
+
+  if (isDraw) {
+    round++;
+    playRound();
+  }
 }
 
 function enableStartBtn() {
@@ -262,26 +198,6 @@ function outComeDisplay(outcome) {
   outComeP.innerText = gameOutcome;
 }
 
-/*let compBox = () => {
-  let compDiv = document.createElement("div");
-  let computerText = document.createElement("input");
-  let computerTextId = "computerText";
-  let compLabel = document.createElement("label");
-  compLabel.textContent = "Computer Selection:";
-  compDiv.appendChild(compLabel);
-  computerText.setAttribute("id", computerTextId);
-  computerText.setAttribute("type", "text");
-  computerText.setAttribute("value", computerSelection);
-  gameSheet.appendChild(compDiv);
-  compDiv.appendChild(computerText);
-  document.getElementById("computerText").style.margin = "7px 10px 20px 30px";
-  document.getElementById("computerText").readOnly = true;
-  let outcomeDiv = document.createElement("div");
-  outcomeDiv.textContent = fOutcomeValue;
-  gameSheet.appendChild(outcomeDiv);
-  outComeDisplay(fOutcomeValue);
-};*/
-
 function playGame() {
   console.log("Player Selection is " + playerSelection);
   console.log("Computer Selection is " + computerSelection);
@@ -289,6 +205,8 @@ function playGame() {
   if (playerSelection == computerSelection) {
     gameOutcome = "It's a draw!";
     console.log("It's a draw!");
+  } else {
+    isDraw = false;
   }
   if (playerSelection == "rock" && computerSelection == "paper") {
     gameOutcome = "You lose, Paper covers Rock!";
