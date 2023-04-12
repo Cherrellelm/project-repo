@@ -52,12 +52,12 @@ function playRound() {
   let divPlayRound = document.createElement("div");
   let divPlayRoundId = `divPlayRound` + round;
   divPlayRound.setAttribute("id", divPlayRoundId);
-  divPlayRound.setAttribute("class", "graybg redline");
+  divPlayRound.setAttribute("class", "graybg");
 
   let divLblRound = document.createElement("div");
   let divLblRoundId = "divLblRound" + round;
   divLblRound.setAttribute("id", divLblRoundId);
-  divLblRound.setAttribute("class", "item greenline");
+  divLblRound.setAttribute("class", "item");
 
   let lblRound = document.createElement("label");
   let lblRoundId = "lblRound" + round;
@@ -67,12 +67,12 @@ function playRound() {
   let divChoices = document.createElement("div");
   let divChoicesId = "divChoices" + round;
   divChoices.setAttribute("id", divChoicesId);
-  divChoices.setAttribute("class", "container choices greenline");
+  divChoices.setAttribute("class", "container choices");
 
   let divPlayerChoice = document.createElement("div");
   let divPlayerChoiceId = "divPlayerChoice" + round;
   divPlayerChoice.setAttribute("id", divPlayerChoiceId);
-  divPlayerChoice.setAttribute("class", "item greenline");
+  divPlayerChoice.setAttribute("class", "item");
 
   let selectPlayerChoice = document.createElement("select");
   let selectPlayerChoiceId = "SelectPlayerChoice" + round;
@@ -95,7 +95,7 @@ function playRound() {
   let divComputerChoice = document.createElement("div");
   let divComputerChoiceId = "divComputerChoice" + round;
   divComputerChoice.setAttribute("id", divComputerChoiceId);
-  divComputerChoice.setAttribute("class", "item greenline");
+  divComputerChoice.setAttribute("class", "item");
 
   let lblComputerChoice = document.createElement("label");
   let lblComputerChoiceId = "lblComputerChoice" + round;
@@ -109,7 +109,7 @@ function playRound() {
   inputComputerChoice.setAttribute("readonly", true);
 
   let startBtnDiv = document.createElement("div");
-  startBtnDiv.setAttribute("class", "item greenline");
+  startBtnDiv.setAttribute("class", "item");
 
   let startBtn = document.createElement("button");
   let startBtnId = "startBtn" + round;
@@ -117,7 +117,7 @@ function playRound() {
   startBtn.innerText = "Rock Paper Scissors Shoot";
 
   let outComeDiv = document.createElement("div");
-  outComeDiv.setAttribute("class", "greenline");
+  //outComeDiv.setAttribute("class", "greenline");
 
   let outComeP = document.createElement("p");
   let outComePId = "outcomeText" + round;
