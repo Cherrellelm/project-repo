@@ -42,6 +42,7 @@ let roundResult;
 let playerPoint = 0;
 let computerPoint = 0;
 let gameOutcome;
+//let reset;
 let playBtn = document.querySelector("#playBtn");
 let gameSheet = document.querySelector("#gameSheet");
 let playerText = document.querySelector("#playerText");
@@ -139,7 +140,9 @@ function playRound() {
   startBtnDiv.appendChild(startBtn);
 
   outComeDiv.appendChild(outComeP);
+  /*resetBtnDiv.appendChild(resetBtn);
 
+  divPlayRound.appendChild(resetBtnDiv);*/
   divPlayRound.appendChild(divLblRound);
   divPlayRound.appendChild(divChoices);
   divPlayRound.appendChild(startBtnDiv);
@@ -154,6 +157,8 @@ function playRound() {
   startBtn = document.getElementById("startBtn" + round).disabled = true;
 
   divComputerChoice.style.display = "none";
+
+  //let resetBtn = document.getElementById("resetBtn" + round);
 }
 
 function clickStartBtn() {
@@ -163,6 +168,11 @@ function clickStartBtn() {
   playGame();
   outComeDisplay(gameOutcome);
   console.log("rock paper scissors " + computerSelection);
+
+  /*if (round <= 4) {
+    round++;
+    resetGame();
+  }*/
 
   if (isDraw) {
     round++;
@@ -238,6 +248,25 @@ function playGame() {
     playerPoint++;
   }
 }
+
+/*function showResetBtn() {
+  let divPlayRound;
+  let resetBtnDiv = document.createElement("div");
+  resetBtnDiv.setAttribute("class", "item");
+
+  let resetBtn = document.createElement("button");
+  let resetBtnId = "resetBtn" + round;
+  resetBtn.setAttribute("id", resetBtnId);
+  resetBtn.innerText = "Rock Paper Scissors Shoot";
+
+  resetBtnDiv.appendChild(resetBtn);
+
+  divPlayRound.appendChild(resetBtnDiv);
+}*/
+
+/*function resetGame() {
+  playBtn.addEventListener("click", () => playRound(), { once: true });
+}*/
 
 /*let score = `Player score = ${playerPoint} | Computer score = ${computerPoint}`;
 if (playerPoint > computerPoint) {

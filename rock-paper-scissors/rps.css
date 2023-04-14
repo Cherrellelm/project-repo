@@ -2,34 +2,16 @@
     display: flex;
     flex-direction: column;
     border: 1px solid black;
+    align-items: center;
   }
   
   .item {
     flex: 1;
+    
   }
   
   .choices {
     flex-direction: row;
-  }
-  
-  .blueline {
-      border: 2px solid cornflowerblue;
-      margin: 5px;
-  }
-  
-  .yellowline {
-      border: 2px solid yellow;
-      margin: 5px;
-  }
-  
-  .greenline {
-      border: 2px solid green;
-      margin: 5px;
-  }
-  
-  .redline {
-      border: 2px solid red;
-      margin: 5px;
   }
   
   .largetext {
@@ -38,4 +20,8 @@
   
   .graybg {
       background-color: lightgray;
+  }
+
+  .image {
+    size: 30vw;
   }
