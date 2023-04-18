@@ -1,8 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200&family=Heebo:wght@600&display=swap');
+
 .container {
     display: flex;
     flex-direction: column;
     border: 1px solid black;
     align-items: center;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    background-color: rgb(232, 216, 202);
   }
   
   .item {
@@ -22,6 +27,18 @@
       background-color: lightgray;
   }
 
-  .image {
-    size: 30vw;
-  }
+  .btnStyle {
+    background-color: #4e89a8;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    padding: 8px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.headerFont {
+    font-family: 'Sedgwick Ave Display', sans-serif, cursive;
+}
