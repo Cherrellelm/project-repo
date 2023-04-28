@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Restaurant Bill</title>
+    <link rel="stylesheet" href="reciept0306.css" />
+    <script src="reciept0306.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="img">
+        <img src="./reciept.png" alt="Dinner Spread" style="width: 80vw" />
+      </div>
+      <div class="headFont">
+        <h1>Place your order</h1>
+      </div>
+
+      <div class="item smallFont">
+        <label for="statename">Location: </label>
+        <select name="statename" id="statename"></select>
+      </div>
+      <div class="item smallFont">
+        <button class="btnStyle" id="addOrderBtn">Add to Order</button>
+        <button class="btnStyle" id="clearOrderBtn">Clear Order</button>
+      </div>
+      <div class="item smallFont" id="orders"></div>
+      <div class="item smallFont">
+        <label for="orderTotal">Order Total</label>
+        <input
+          type="text"
+          id="orderTotal"
+          name="orderTotal"
+          readonly
+          class="align-right"
+        />
+      </div>
+      <div class="item radioBtn smallFont" id="tipSelect">
+        <input type="radio" id="tipSelect25" name="tip" value="25" checked />
+        <label for="25">25%</label><br />
+        <input type="radio" id="tipSelect20" name="tip" value="20" />
+        <label for="20">20%</label><br />
+        <input type="radio" id="tipSelect15" name="tip" value="15" />
+        <label for="15">15%</label><br />
+      </div>
+
+      <div class="item smallFont">
+        <label for="tipTotal">Tip Total</label>
+        <input
+          type="text"
+          id="tipTotal"
+          name="tipTotal"
+          readonly
+          class="align-right"
+        />
+      </div>
+
+      <div class="item smallFont">
+        <label id="labelStateTax" for="stateTax"></label>
+        <input
+          type="text"
+          id="taxTotal"
+          name="taxTotal"
+          readonly
+          class="align-right"
+        />
+      </div>
+
+      <div class="item smallFont">
+        <label for="billTotal">Total Bill</label>
+        <input
+          type="text"
+          id="billTotal"
+          name="billTotal"
+          readonly
+          class="align-right"
+        />
+      </div>
+
+      <div class="item smallFont">
+        <button class="btnStyle" id="submitBtn">Submit</button>
+      </div>
+
+      <div id="output" class="item smallFont"></div>
+    </div>
+  </body>
+</html>

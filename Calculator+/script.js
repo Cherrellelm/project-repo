@@ -57,8 +57,10 @@ compute(){
     this.currentOperand = computation;
     this.operation = undefined;
     this.previousOperand = '';
+
 }
-gitDisplayNumber(number) {
+    
+getDisplayNumber(number) {
     const stringNumber = number.toString();
     const integerDigits = parseFloat(stringNumber.split('.')[0]);
     const decimalDigits = stringNumber.split('.')[1];
@@ -77,10 +79,10 @@ gitDisplayNumber(number) {
 }
 
 updateDisplay() {
-    this.currentOperandTextElement.innerText = this.gitDisplayNumber (this.currentOperand);
+    this.currentOperandTextElement.innerText = this.getDisplayNumber (this.currentOperand);
     if (this.operation != null) {
         this.previousOperandTextElement.innerText =
-        `${this.gitDisplayNumber(this.previousOperand)} ${this.operation}`
+        `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
     
     }else {
         this.previousOperandTextElement.innerText = '';
