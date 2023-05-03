@@ -46,6 +46,7 @@ let gameOutcome;
 let playBtn = document.querySelector("#playBtn");
 let gameSheet = document.querySelector("#gameSheet");
 let playerText = document.querySelector("#playerText");
+let scoreCounter = document.querySelector("#scoreDisplay");
 
 playBtn.addEventListener("click", () => playRound(), { once: true });
 
@@ -206,6 +207,10 @@ function assignPlayerChoice() {
 function outComeDisplay(outcome) {
   let outComeP = document.getElementById("outcomeText" + round);
   outComeP.innerText = gameOutcome;
+}
+
+function scoreDisplay() {
+
 }
 
 function playGame() {
