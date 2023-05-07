@@ -178,6 +178,8 @@ function clickStartBtn() {
   if (isDraw) {
     round++;
     playRound();
+  } else {
+    showResetBtn();
   }
 }
 
@@ -210,7 +212,8 @@ function outComeDisplay(outcome) {
 }
 
 function scoreDisplay() {
-
+  let scoreCounter = document.getElementById("scoreDisplay" + round);
+  scoreCounter.setAttribute
 }
 
 function playGame() {
@@ -254,7 +257,8 @@ function playGame() {
   }
 }
 
-/*function showResetBtn() {
+
+function showResetBtn() {
   let divPlayRound;
   let resetBtnDiv = document.createElement("div");
   resetBtnDiv.setAttribute("class", "item");
@@ -267,7 +271,7 @@ function playGame() {
   resetBtnDiv.appendChild(resetBtn);
 
   divPlayRound.appendChild(resetBtnDiv);
-}*/
+}
 
 /*function resetGame() {
   playBtn.addEventListener("click", () => playRound(), { once: true });
